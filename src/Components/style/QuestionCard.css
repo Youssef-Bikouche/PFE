@@ -1,0 +1,47 @@
+.QuestionCard{
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(62, 62, 62);
+  width: 100%;
+  color: white;
+  font-size: larger;
+  font-weight: 500;
+  padding: 10px 20px;
+  margin-bottom: 40px;
+  border-radius: 10px;
+}
+.QuestionCard div{
+  padding: 10px;
+  margin-bottom: 5px;
+}
+.QuestionsBord{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.QuestionCard button{
+  width: 10%;
+  background-color: rgb(83, 175, 206);
+  color: white;
+  text-align: center;
+  border-radius: 12px;
+  border: none;
+  padding: 10px 12px;
+  font-size: medium;
+  font-weight: 500;
+  float: right;
+}
+.QuestionCard-details{
+ display: flex;
+ margin: 10px;
+ justify-content: space-between;
+ align-items: center;
+ width: 100%;
+}
+.NomUser{
+ font-size: large;
+}
+.user-icon{
+  font-size: medium;
+  margin-right: 20px;
+}

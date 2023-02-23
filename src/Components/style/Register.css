@@ -1,0 +1,102 @@
+.Register-form{
+position: absolute;
+right: 130px;
+top: 6%;
+width: 600px;
+padding: 15px;
+display: flex;
+flex-direction: column;
+align-items: center;
+box-shadow: 4px 2px 15px rgb(39, 39, 39);
+border-radius: 12px;
+z-index: 10;
+border: none;
+animation: rotate 15s infinite linear;
+}
+.Register-form div{
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 12px;
+  }
+.Register-form label{
+font-family: 'Brush Script MT';
+font-weight: 500;
+color: #1A2238;
+font-style: italic;
+font-size: 50px;
+margin-bottom: 5px;
+}
+.Register-form .inputIcon{
+width: 20%;
+font-size: large;
+font-weight: 525;
+
+ }
+ .Register-error{
+ text-align: center;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+.Register-error label{
+  margin-top: 10px;
+  height: 20px;
+  margin-bottom: 0;
+  text-align: center;
+  font-size: medium;
+  font-family: 'Courier New', Courier, monospace;
+  color: red;
+font-weight: 600;
+}
+.back-home{
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  top: 20px;
+  right: 20px;
+  font-size: x-large;
+  cursor: pointer;
+}
+.back-home a{
+  text-decoration: none;
+  list-style: none;
+  color: #FF6A3D;
+}
+@keyframes rotate{
+  0%{
+    box-shadow: 4px 0px 15px #FF6A3D;
+  }
+  10%{
+    box-shadow: 0px -4px 15px #FF6A3D;
+  }
+  20%{
+    box-shadow: -4px 0px 0px #FF6A3D;
+  }
+  30%{
+    box-shadow: 0px 4px 15px #FF6A3D;
+  }
+  40%{
+    box-shadow: 4px 0px 15px #FF6A3D;
+  }
+  50%{
+    box-shadow: 0px -4px 0px #FF6A3D;
+  }
+  60%{
+    box-shadow: -4px 0px 15px #FF6A3D;
+  }
+  70%{
+    box-shadow: 0px 4px 15px #FF6A3D;
+  }
+  80%{
+    box-shadow: 4px 0px 15px #FF6A3D;
+  }
+  90%{
+    box-shadow: 0px -4px 15px #FF6A3D;
+  }
+  100%{
+    box-shadow: -4px 0px 15px #FF6A3D;
+  }
+
+}

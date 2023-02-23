@@ -1,0 +1,152 @@
+
+.wave-login{
+  position: fixed;
+  width: 50%;
+  height: 101%;
+  left: 0;
+  top: 0;
+  z-index: -1;
+}
+.login-form ,.Register-form *:not(input){
+  cursor: pointer;
+}
+.login-form{
+position: absolute;
+right: 200px;
+top: 20%;
+width: 450px;
+padding: 15px;
+display: flex;
+flex-direction: column;
+align-items: center;
+/* box-shadow: 4px 2px 15px rgb(39, 39, 39); */
+border-radius: 12px;
+animation: rotate 15s infinite linear;
+
+}
+@keyframes rotate{
+  0%{
+    box-shadow: 4px 0px 15px #FF6A3D;
+  }
+  10%{
+    box-shadow: 0px -4px 15px #FF6A3D;
+  }
+  20%{
+    box-shadow: -4px 0px 0px #FF6A3D;
+  }
+  30%{
+    box-shadow: 0px 4px 15px #FF6A3D;
+  }
+  40%{
+    box-shadow: 4px 0px 15px #FF6A3D;
+  }
+  50%{
+    box-shadow: 0px -4px 0px #FF6A3D;
+  }
+  60%{
+    box-shadow: -4px 0px 15px #FF6A3D;
+  }
+  70%{
+    box-shadow: 0px 4px 15px #FF6A3D;
+  }
+  80%{
+    box-shadow: 4px 0px 15px #FF6A3D;
+  }
+  90%{
+    box-shadow: 0px -4px 15px #FF6A3D;
+  }
+  100%{
+    box-shadow: -4px 0px 15px #FF6A3D;
+  }
+
+}
+.login-form div{
+width: 90%;
+margin-bottom: 20px;
+}
+input{
+  width: 100%;
+  height: 30px;
+  border-radius: 8px;
+  border: 1px solid #1A2238;
+  text-align: center;
+  font-size: medium;
+  color: hsl(224, 37%, 16%);
+  font-weight: 500;
+}
+.username,.password{
+  border-bottom: 1px solid #FF6A3D;
+}
+.login-form label{
+font-family: 'Brush Script MT';
+font-weight: 500;
+color: #1A2238;
+font-style: italic;
+font-size: 50px;
+margin-bottom: 5%;
+}
+.username,.password{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.username .user ,.password .lock{
+ width: 15%;
+ height: 30px;
+ text-align: center;
+ padding-top: 8px;
+ color:  orangered;
+}
+.login-pic{
+  display: flex;
+  justify-content: center;
+}
+.avatar{
+width: 30%;
+}
+button{
+  width: 90%;
+  border-radius: 12px;
+  border: none;
+  font-size: large;
+  height: 30px;
+  background-color: lightsalmon;
+  color: white;
+  transition: box-shadow 0.5s;
+  padding: 5px 0 10px 0;
+  margin-bottom: 10px;
+}
+button:hover{
+  box-shadow: inset 600px 0px 5px #FF6A3D;
+}
+.Register-error{
+  text-align: center;
+   width: 50%;
+   display: flex;
+   justify-content: center;
+
+ }
+ .Register-error label{
+   margin-top: 10px;
+   height: 20px;
+   margin-bottom: 0;
+   text-align: center;
+   font-size: medium;
+   font-family: 'Courier New', Courier, monospace;
+   color: red;
+ font-weight: 600;
+ }
+ .back-home{
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  top: 20px;
+  right: 20px;
+  font-size: x-large;
+  cursor: pointer;
+}
+.back-home a{
+  text-decoration: none;
+  list-style: none;
+  color: #FF6A3D;
+}
