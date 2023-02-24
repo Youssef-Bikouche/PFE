@@ -1,6 +1,7 @@
 import "./style/Register.css";
 import wave from "./images/wave.png";
 import avatar from "./images/avatar.png";
+import videolast from "./images/videolast.mp4";
 import axios from "axios";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
@@ -8,7 +9,6 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import {faHome} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 library.add(faHome);
-// library.add(faPassword)
 
 const Loginn = () => {
   const [error, setError] = useState('');
@@ -32,17 +32,15 @@ const Loginn = () => {
   }
   }
   const checkpassword=(event)=>{
-    
     if(password===confirmPassword){
-      handleSubmit(event);
+      handleRegister(event);
     }
     else{
       setError("confirm password inccorect");
     }
   }
   const navigate=useNavigate();
-  const handleSubmit = async event => {
-  
+  const handleRegister = async event => {
     try {
       const response = await axios.post('http://localhost:8080/pfe/src/Components/PHP/register.php', {
         username,
@@ -55,11 +53,14 @@ const Loginn = () => {
       if (result.data.data.status=='valid') {
         console.log('register successful');
        navigate("/Login");
-      } else {
-       alert(error);
+      } else if(result.data.data.status=='already exist') {
         setError(result.data.data.status);
         console.log(error);
       }
+      else {
+         setError(result.data.data.status);
+         console.log(error);
+       }
       });
       
     } catch (error) {
@@ -68,7 +69,10 @@ const Loginn = () => {
    } 
   return ( 
 <div className="Register-container">
-       <div className="back-home"><Link to='/Home'><FontAwesomeIcon icon="home"/></Link></div>
+        <video className='video-logo' autoPlay loop muted width= '500px' height= '500px' >
+        <source src={videolast} type="video/mp4"/>
+        </video>
+      <div className="back-home"><Link to='/Home'><FontAwesomeIcon icon="home"/></Link></div>
       <img className='wave-login' src={wave} alt="" />
       <div className="Register-form">
         <div className="login-pic"><img className='avatar' src={avatar} alt="" /></div>
@@ -83,15 +87,15 @@ const Loginn = () => {
                 </div>
             <div className="usernamee">
                     <div className="inputIcon">Username:</div>
-                    <div className="input"><input type="text" required onChange={(event)=>{setusername(event.target.value)}}/></div>
+                    <div className="input"><input type="text" required onChange={(event)=>{setusername(event.target.value)}} placeholder='Must be unique'/></div>
             </div>
             <div className="email">
                     <div className="inputIcon">Email:</div>
-                    <div className="input"><input type="text" required onChange={(event)=>{setemail(event.target.value)}}/></div>
+                    <div className="input"><input type="text" required onChange={(event)=>{setemail(event.target.value)}} placeholder='Exemple@gmail.com' /></div>
             </div>
             <div className="passwordd">
                     <div className="inputIcon">Password:</div>
-                    <div className="input"><input type="password" required onChange={(event)=>{setpassword(event.target.value)}}/></div>
+                    <div className="input"><input type="password" required onChange={(event)=>{setpassword(event.target.value)}} placeholder='Must have at least 5 characters'/></div>
             </div>
             <div className="passwordd">
                     <div className="inputIcon">Confirm Password:</div>
@@ -103,5 +107,4 @@ const Loginn = () => {
     </div>
    );
 }
- 
 export default Loginn;

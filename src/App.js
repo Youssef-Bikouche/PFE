@@ -1,10 +1,10 @@
 import React from "react";
 import Navbar from "./Components/Navbar";
+import "./index.css";
 import SearchClicked from "./Components/SearchClicked";
 import Home from "./Components/Home";
 import Contact from "./Components/Contact";
 import { BrowserRouter as Router,Route,Routes} from 'react-router-dom';
-import "./index.css";
 import Filiere from "./Components/Filiere";
 import Loginn from "./Components/Loginn";
 import Register from "./Components/Register";

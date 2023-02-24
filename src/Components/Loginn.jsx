@@ -1,6 +1,7 @@
 import "./style/loginn.css";
 import wave from "./images/wave.png";
 import avatar from "./images/avatar.png";
+import videolast from "./images/videolast.mp4";
 import axios from "axios";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
@@ -37,6 +38,9 @@ const Loginn = () => {
    } 
   return ( 
 <div className="Login-container">
+        <video className='video-logo' autoPlay loop muted width= '500px' height= '500px' >
+        <source src={videolast} type="video/mp4"/>
+        </video>
       <div className="back-home"><Link to='/Home'><FontAwesomeIcon icon="home"/></Link></div>
       <img className='wave-login' src={wave} alt="" />
       <div className="login-form">

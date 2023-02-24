@@ -100,3 +100,15 @@ font-weight: 600;
   }
 
 }
+.video-logo2{
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  top: 160px;
+  left: 120px;
+  cursor: pointer;
+  border-radius: 70% 70% 70% 0;
+  border: none;
+  box-shadow: inset 400px 400px 20px rgba(0, 0, 0, 0.5);
+  opacity: 0.97;
+}

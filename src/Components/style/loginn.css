@@ -1,7 +1,6 @@
-
 .wave-login{
   position: fixed;
-  width: 50%;
+  width: 100%;
   height: 101%;
   left: 0;
   top: 0;
@@ -22,7 +21,6 @@ align-items: center;
 /* box-shadow: 4px 2px 15px rgb(39, 39, 39); */
 border-radius: 12px;
 animation: rotate 15s infinite linear;
-
 }
 @keyframes rotate{
   0%{
@@ -149,4 +147,18 @@ button:hover{
   text-decoration: none;
   list-style: none;
   color: #FF6A3D;
+}
+.video-logo{
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  /* top: 200px;
+  left: 120px; */
+  left: 60px;
+  top: 420px;
+  cursor: pointer;
+  border-radius: 70% 70% 70% 0;
+  border: none;
+  box-shadow: inset 400px 400px 20px rgba(0, 0, 0, 0.5);
+  opacity: 0.97;
 }

@@ -13,11 +13,21 @@ $nom=$data->nom;
 $prenom=$data->prenom;
 $email=$data->email;
 try{ $db = new PDO('mysql:host=localhost;dbname=pfe', 'root', '');
+  $VerfieUser='select username from users where username="'.$username.'"';
+  $req = $db->prepare($VerfieUser);
+  $req->execute();
+  $res = $req->fetchAll();
+  if($res!=null){
+ $response['data']=array('status'=>'username already exist');
+   echo json_encode($response);
+  }
+  else{
  $req = $db->prepare('insert into users (nom,prenom,username,password,email) values("'.$nom.'","'.$prenom.'","'.$username.'","'.$password.'","'.$email.'");');
  $req->execute();
  $res = $req->fetchAll();
  $response['data']=array('status'=>'valid');
    echo json_encode($response);
+  }
 }catch(PDOException $e){
  echo $e->getMessage();
  $response['data']=array('status'=>'invalid');

@@ -6,7 +6,6 @@ header ("Content-Type: application json; charset=UTF-8" );
 
 $method=$_SERVER['REQUEST_METHOD'];
 if($method=="POST"){
-  // $data=json_decode(file_get_contents("php://input"));
   $data=json_decode(file_get_contents("php://input"));
   $username=$data->username;
   $password=$data->password;
@@ -14,6 +13,7 @@ if($method=="POST"){
   $req = $db->prepare('select username from users where username="'.$username.'" and password="'.$password.'"');
   $req->execute();
   $res = $req->fetchAll();
+
 if($res!=null){
    if(isset($res) && $res[0][0]==$username){
     $response['data']=array('status'=>'valid');
