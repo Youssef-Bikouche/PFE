@@ -101,7 +101,7 @@ const Loginn = () => {
                     <div className="inputIcon">Confirm Password:</div>
                     <div className="input"><input type="password" required onChange={(event)=>{setConfirmPassword(event.target.value)}}/></div>
             </div>
-            <button onClick={()=>{checkRequired()}}>Register</button>
+            <button onClick={()=>{checkRequired()}} className="RegisterButton">Register</button>
            <div className="Register-error"> <label >{error}</label></div>
       </div>
     </div>

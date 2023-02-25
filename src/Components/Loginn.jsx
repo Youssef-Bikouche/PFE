@@ -56,7 +56,7 @@ const Loginn = () => {
           </div>
           <div style={{color: "green",fontWeight: '500'}}><Link to='/Register'>Create an account ?</Link></div>
           
-          <button onClick={(event)=>{handleSubmit(event)}}>Login</button>
+          <button onClick={(event)=>{handleSubmit(event)}} className="LoginButton">Login</button>
           <div className="Register-error"> <label >{error}</label></div>
       </div>
     </div>

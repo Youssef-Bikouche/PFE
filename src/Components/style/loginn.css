@@ -102,7 +102,7 @@ margin-bottom: 5%;
 .avatar{
 width: 30%;
 }
-button{
+.LoginButton{
   width: 90%;
   border-radius: 12px;
   border: none;
@@ -114,7 +114,7 @@ button{
   padding: 5px 0 10px 0;
   margin-bottom: 10px;
 }
-button:hover{
+.LoginButton:hover{
   box-shadow: inset 600px 0px 5px #FF6A3D;
 }
 .Register-error{

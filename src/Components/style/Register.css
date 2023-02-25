@@ -112,3 +112,18 @@ font-weight: 600;
   box-shadow: inset 400px 400px 20px rgba(0, 0, 0, 0.5);
   opacity: 0.97;
 }
+.RegisterButton{
+  width: 90%;
+  border-radius: 12px;
+  border: none;
+  font-size: large;
+  height: 30px;
+  background-color: lightsalmon;
+  color: white;
+  transition: box-shadow 0.5s;
+  padding: 5px 0 10px 0;
+  margin-bottom: 10px;
+}
+.RegisterButton:hover{
+  box-shadow: inset 600px 0px 5px #FF6A3D;
+}

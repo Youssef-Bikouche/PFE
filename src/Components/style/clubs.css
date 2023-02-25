@@ -1,0 +1,30 @@
+body{
+  background-image: url(/src/Components/images/Clubs/ClubBackground.png);
+  background-size:cover;
+  background-position: center;
+  background-attachment: fixed;
+  height:100%;
+}
+.Club{
+ position: absolute;
+ top: 11%;
+ width: 100%;
+ height: 100%;
+ padding: 10px;
+ display: flex;
+ flex-direction: column;
+ row-gap: 20px;
+ column-gap: 20px;
+}
+.Containercards{
+ display: flex;
+ flex-direction: column;
+ padding: 10px;
+ row-gap: 20px;
+align-items: center;
+}
+.ClubSlider{
+  width: 100%;
+  height: 100%;
+  border: 3px solid blue;
+ }

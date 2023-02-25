@@ -3,11 +3,11 @@ import Navbar from "./Components/Navbar";
 import "./index.css";
 import SearchClicked from "./Components/SearchClicked";
 import Home from "./Components/Home";
-import Contact from "./Components/Contact";
 import { BrowserRouter as Router,Route,Routes} from 'react-router-dom';
 import Filiere from "./Components/Filiere";
 import Loginn from "./Components/Loginn";
 import Register from "./Components/Register";
+import Clubs from "./Components/Clubs";
 function App() {
   return (
   <Router>
@@ -27,7 +27,7 @@ function App() {
           <Route exact path='/Login' element={<Loginn />} />
           <Route exact path='/Clubs' element={<>
           <Navbar />
-          <Contact /></>}/>
+          <Clubs /></>}/>
           <Route exact path='/Filiere' element={<>
           <Navbar />
           <Filiere />
