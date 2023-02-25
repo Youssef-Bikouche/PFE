@@ -25,7 +25,7 @@ function App() {
           <SearchClicked />
           </>} />
           <Route exact path='/Login' element={<Loginn />} />
-          <Route exact path='/Contact' element={<>
+          <Route exact path='/Clubs' element={<>
           <Navbar />
           <Contact /></>}/>
           <Route exact path='/Filiere' element={<>

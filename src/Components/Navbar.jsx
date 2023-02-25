@@ -24,7 +24,7 @@ const Navbar = () => {
           </div>
           </li>
           <li><Link to='/Filiere'>Filieres</Link></li>
-          <li><Link to='/Contact'>Contact</Link></li>
+          <li><Link to='/Clubs'>Clubs</Link></li>
           <li><Link to='/SearchClicked'><FontAwesomeIcon icon="search" className="search"/></Link></li>
         </ul>
       </div>
