@@ -1,0 +1,17 @@
+.ClubSlide{
+ display: flex;
+ height: 100%;
+ align-items: center;
+ z-index: -1;
+ /* background-color: rgba(53, 53, 53, 0.507); */
+ margin-top: 20px;
+ padding: 40px;
+}
+.ClubSlide a{
+  text-decoration: none;
+  list-style: none;
+}
+.ClubSlide img{
+z-index: -1;
+width: 70%;
+}

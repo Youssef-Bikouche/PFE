@@ -1,9 +1,20 @@
 import "./style/SliderCards.css";
-const SLiderCard = () => {
+import amr from "./images/logo.png"
+// import { Link } from "react-router-dom";
+
+
+const SLiderCard = ({props}) => {
+  const imgg="/Clubs/"+props.imgClub;
+  const id="#"+props.id;
   return ( 
-    <div className="one-slider-card">
-        
-    </div>
+    <a href={id}><div className="one-slider-card">
+        <div className="image">
+        <img src={imgg} alt={props.titleClub} id="Clubimg"/>
+        </div>
+        <div className="infoslide">
+        {props.titleClub}
+        </div>
+    </div></a>
    );
 }
  

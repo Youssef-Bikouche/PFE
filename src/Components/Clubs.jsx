@@ -1,9 +1,9 @@
 import ClubCards from "./clubCards";
-import ClubSlider from "./ClubSlider";
 import "./style/clubs.css";
 import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
+import ClubSlider from "./ClubSlider";
 const Clubs = () => {
   const [Clubs,setClubs]=useState('');
   const getClubs= async event => {
@@ -19,8 +19,7 @@ const Clubs = () => {
   return ( 
     <div className="Club">
       <div className="ClubSlider">
-      {/* <ClubCards/> */}
-      <ClubSlider/>
+       <ClubSlider props={Clubs}/>
       </div>
       
       {Clubs?.length > 0 ? (

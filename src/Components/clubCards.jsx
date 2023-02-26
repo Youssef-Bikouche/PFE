@@ -4,7 +4,7 @@ const ClubCards = ({props}) => {
   const imgg="/Clubs/"+props.imgClub;
   console.log(imgg);
  return (  
-  <div className="ClubCard-Container" key={props.id}>
+  <div className="ClubCard-Container" key={props.id} id={props.id}>
     <div className="Club-logo">
      <img src={imgg} alt={props.titleClub} id="Clubimg"/>
     </div>
