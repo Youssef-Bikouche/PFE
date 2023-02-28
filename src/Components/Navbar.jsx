@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./style/Navbar.css";
 import logo from "./images/logo.png";
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -7,6 +7,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
 library.add(faSearch);
 const Navbar = () => {
+  const [login,setLogin]=useState('login');
+  const [Register,setRegister]=useState('Register');
+  // const changeLogin=()=>{
+  //   setLogin(false);
+  // }
   return ( 
     <div className="Navbar">
       <div className="logo"><img src={logo} alt="logo" /></div>
@@ -29,8 +34,8 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="authentification">
-        <button className="Btn-login"><Link to='/Login'>log in</Link></button>
-        <button className="Btn-register"><Link to='/Register'>register</Link></button>
+        <button className="Btn-login"><Link to='/Login' props={setLogin}>{login}</Link></button>
+        <button className="Btn-register"><Link to='/Register'>{Register}</Link></button>
       </div> 
     </div>
   );

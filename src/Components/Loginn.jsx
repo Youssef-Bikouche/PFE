@@ -26,7 +26,7 @@ const Loginn = () => {
         console.log(result.data.data.status);
       if (result.data.data.status=='valid') {
         console.log('Login successful');
-       navigate("/Home");
+        navigate("/Home");
       } else {
         setError(result.data.data.status);
       }

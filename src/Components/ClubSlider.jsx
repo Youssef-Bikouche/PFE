@@ -8,7 +8,7 @@ import "swiper/css/pagination";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 
-import { EffectCoverflow, Pagination } from "swiper";
+import {  Autoplay,EffectCoverflow, Pagination, Navigation  } from "swiper";
 
 const ClubSlider = ({props}) => {
  return (  
@@ -20,11 +20,11 @@ const ClubSlider = ({props}) => {
         centeredSlides={true}
         slidesPerView={3}
         spaceBetween={30}
-        loop={true}
+       
         autoplay={{
-        delay: 3000, // autoplay delay in milliseconds
-        disableOnInteraction: false // autoplay continues even when user interacts with swiper
-      }}
+          delay: 2000,
+          disableOnInteraction: false,
+        }}
         coverflowEffect={{
           rotate: 50,
           stretch: 0,
@@ -33,8 +33,11 @@ const ClubSlider = ({props}) => {
           slideShadows: true,
           
         }}
-        pagination={true}
-        modules={[EffectCoverflow, Pagination]}
+        pagination={{
+          clickable: true,
+        }}
+        navigation={true}
+        modules={[Autoplay, EffectCoverflow,Pagination, Navigation]}
         className="mySwiper"
       >
         {props?.length > 0 ? (
