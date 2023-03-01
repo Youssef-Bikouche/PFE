@@ -6,12 +6,21 @@ library.add(faUser);
 const QuestionCard = ({props}) => {
  return (
   <div className="QuestionCard">
-      <div className="NomUser"><FontAwesomeIcon icon="user" className="user-icon"/>{props.nom}</div>
+   <div className='left-side-question'>
+      <div className="logo-user"><FontAwesomeIcon icon="user" className="user-icon"/></div>
+      <div className="likes"></div>
+   </div>
+   <div className='right-side-question'>
+      <div className="info-postage">
+            <div className="Nomuser">{props.nom}</div>
+            <div className="QuestionDate">Posted on :{props.posted}</div>
+      </div>
       <div className="Question">{props.question}</div>
       <div className="QuestionCard-details">
-         <button className="Btn-readmore">read more</button>
-         <div className="QuestionDate">Posted on :{props.posted}</div>
+         <div className="nbr-responses">15 reponse</div>
+         <button className="Btn-repondre">Repondre</button>
       </div>
+   </div>
   </div>
 
    );

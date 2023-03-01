@@ -50,7 +50,7 @@ const ClubSlider = ({props}) => {
           </div>
         ) : (
           <div className="empty">
-            <h2>No Club found</h2>
+            <h2 style={{color:'white'}}>No Club found</h2>
           </div>)
 }
         
