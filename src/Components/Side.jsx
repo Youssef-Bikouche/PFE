@@ -4,9 +4,9 @@ import { useEffect } from "react";
 import axios from "axios";
 import "./style/Side.css";
 import FiliereCard from "./Filierecard";
-const Side = () => {
+const Side = ({props}) => {
   const [filieres,setfilieres]=useState('');
- 
+// props.setsearchFiliere("hello");
   const getFiliere = async event => {
     const response = await axios.post('http://localhost:8080/pfe/src/Components/PHP/Filiere.php').then((result)=>{
     // console.log(result.data.data);
@@ -18,15 +18,16 @@ const Side = () => {
   }
   ,[]);
 
-  const ToggleDiv=()=>{
-    if (verifie == false) {
-      setVerifie(true);
-    } else {
+  // const ToggleDiv=()=>{
+  //   if (verifie == false) {
+  //     setVerifie(true);
+  //   } else {
 
-      setVerifie(false);
-    }
-  }
-  const [verifie,setVerifie]=useState(false);
+  //     setVerifie(false);
+  //   }
+  // }
+  // const [verifie,setVerifie]=useState(false);
+  
   return (  
     <div>
     {filieres?.length > 0 ? (

@@ -2,10 +2,12 @@ import "./style/QuestionCard.css";
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 library.add(faUser);
 const QuestionCard = ({props}) => {
+
  return (
-  <div className="QuestionCard">
+  <div className="QuestionCard" key={props.id} >
    <div className='left-side-question'>
       <div className="logo-user"><FontAwesomeIcon icon="user" className="user-icon"/></div>
       <div className="likes"></div>

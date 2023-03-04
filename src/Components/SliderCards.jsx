@@ -1,5 +1,4 @@
 import "./style/SliderCards.css";
-import amr from "./images/logo.png"
 // import { Link } from "react-router-dom";
 
 

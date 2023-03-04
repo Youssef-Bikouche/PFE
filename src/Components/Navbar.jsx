@@ -1,17 +1,37 @@
-import React, { useState } from "react";
 import "./style/Navbar.css";
+import React, { useEffect, useState } from "react";
 import logo from "./images/logo.png";
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
+
 library.add(faSearch);
 const Navbar = () => {
-  const [login,setLogin]=useState('login');
-  const [Register,setRegister]=useState('Register');
-  // const changeLogin=()=>{
-  //   setLogin(false);
-  // }
+  const [islogin,setislogin]=useState(false);//if the user is connected , it  will be true
+  const navigate=useNavigate();
+  const checkLogin=()=>{
+    if(localStorage.getItem('token')==='verified'){
+      setislogin(true);
+      navigate('/Home');
+   }
+   else{
+    setislogin(false);
+   }
+  }
+  
+  const clearLocalStorage = () => {
+    localStorage.removeItem('token');
+    setislogin(false);//user is not connected , show login and register
+    navigate('/Home'); 
+    
+  };
+  useEffect(()=>{
+      checkLogin();//chechks the login state on every render
+  },[]);
+
+ 
   return ( 
     <div className="Navbar">
       <div className="logo"><img src={logo} alt="logo" /></div>
@@ -34,11 +54,16 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="authentification">
-        <button className="Btn-login"><Link to='/Login' props={setLogin}>{login}</Link></button>
-        <button className="Btn-register"><Link to='/Register'>{Register}</Link></button>
+        {islogin?(
+       <Link to='/login' className="Btn-register"> <button  onClick={()=>clearLocalStorage()}>log out</button></Link>
+        ):(<>
+            <Link to='/Login'  className="Btn-login"><button>log in</button></Link>
+            <Link to='/Register' className="Btn-register"><button >Register</button></Link>
+        </>)}
+      
       </div> 
     </div>
   );
 }
- 
+
 export default Navbar;

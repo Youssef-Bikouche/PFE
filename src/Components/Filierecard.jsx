@@ -16,7 +16,10 @@ const ToggleDiv=()=>{
       {verifie ?(
        <div className="filiere-option">
                     <div className="courses">cours <span>►</span></div>
-                    <div className="Q&A">questions <span>►</span></div>
+                    <div className="Q&A" onClick={()=>{
+                      const changeSearch=localStorage.getItem("filiere");
+                 
+                    }}>questions <span>►</span></div>
                   </div> 
      ):(
       <div></div>

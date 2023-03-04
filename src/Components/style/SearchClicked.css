@@ -17,14 +17,15 @@ height: 100%;
 background-color: rgb(244, 244, 244);
 overflow-y: scroll;
 }
+
 .Searchbar{
  height: 10%;
  width: 100%;
  display: flex;
- flex-wrap: wrap;
  align-items: center;
-justify-content: center;
+justify-content: space-evenly;
 }
+
 .Searchbar input{
 width: 50%;
 height: 37px;
@@ -41,4 +42,131 @@ font-weight: 600;
 color: #1A2238;
 font-size: larger;
 cursor: pointer;
+}
+.Pose-question{
+  float: right;
+  text-align: center;
+  width: 15%;
+  padding: 10px 6px;
+  background-color: rgb(36, 192, 244);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 12px;
+  /* margin-left: 10%; */
+}
+.pop-login,.container-pop-poseQuestion{
+height: 100%;
+width: 100%;
+position: fixed;
+background-color: rgba(0, 0, 0, 0.628);
+backdrop-filter: blur(3px);
+}
+.container-popLogin{
+ position: relative;
+ height: 20%;
+ width: 20%;
+ margin: 20% auto;
+ background-color: rgba(0, 0, 0, 0.628);
+ border: 1px solid black;
+ border: 12px;
+ text-align: center;
+ padding-top: 20px;
+ color: black;
+ font-size: x-large;
+ border-radius: 16px;
+}
+.close-pop{
+  position: absolute;
+  cursor: pointer;
+  right: 6px;
+  top: 2px;
+  color: red;
+}
+.pop-text{
+  position: absolute;
+  top: 35%;
+  left: 20%;
+  animation: title 2s infinite;
+}
+.post-your-question{
+ position: relative;
+ height: 70%;
+ width: 50%;
+ margin: 20% auto;
+ background-color: #1A2238;
+ border: 1px solid black;
+ border: 12px;
+padding: 2%;
+padding-left: 4%;
+ padding-top: 20px;
+ color: white;
+ font-size: x-large;
+ border-radius: 16px;
+ top: -20%;
+
+}
+
+.post-your-question label{
+ display: block;
+ font-size: larger;
+ font-weight: 500;
+ font-style: italic;
+ margin: 2%;
+}
+.post-your-question select{
+ width: 95%;
+ height: 10%;
+ border-radius: 10px;
+ border: none;
+ font-size: medium;
+ font-weight: 500;
+
+}
+.post-your-question option{
+ background-color: #1A2238;
+ color: white;
+ 
+
+}
+.post-your-question textarea{
+ display: block;
+ width: 95%;
+ color: #1A2238;
+ font-size: large;
+ font-weight: 600;
+ padding: 2%;
+ margin-bottom: 4%;
+}
+.post-your-question button{
+    width: 95%;
+    border-radius: 12px;
+    border: none;
+    font-size: large;
+    height: 30px;
+    background-color: lightsalmon;
+    color: white;
+    transition: box-shadow 0.5s;
+    padding: 5px 0 10px 0;
+    margin-bottom: 10px;
+  }
+.post-your-question button:hover{
+    box-shadow: inset 700px 0px 5px #FF6A3D;
+  }
+@keyframes title{
+ 0%{
+   color: coral;
+ }
+ 25%{
+   color: blueviolet;
+ }
+ 50%{
+   color:cyan;
+ }
+ 75%{
+   color: cornflowerblue;
+ }
+ 100%{
+   color: rgb(219, 195, 99);
+ }
 }
