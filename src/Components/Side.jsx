@@ -6,7 +6,7 @@ import "./style/Side.css";
 import FiliereCard from "./Filierecard";
 const Side = ({props}) => {
   const [filieres,setfilieres]=useState('');
-// props.setsearchFiliere("hello");
+  console.log(props.searchTerm);
   const getFiliere = async event => {
     const response = await axios.post('http://localhost:8080/pfe/src/Components/PHP/Filiere.php').then((result)=>{
     // console.log(result.data.data);

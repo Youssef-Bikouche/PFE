@@ -6,13 +6,13 @@ import axios from "axios";
 import ClubSlider from "./ClubSlider";
 const Clubs = () => {
   const [Clubs,setClubs]=useState('');
-  const getClubs= async event => {
-    const response = await axios.post('http://localhost:8080/pfe/src/Components/PHP/getClubs.php').then((result)=>{
-    console.log(result.data.data);
-    setClubs(result.data.data);
-    // console.log(Clubs);
-  });}
   useEffect(()=>{
+    const getClubs= async event => {
+      const response = await axios.post('http://localhost:8080/pfe/src/Components/PHP/getClubs.php').then((result)=>{
+      console.log(result.data.data);
+      setClubs(result.data.data);
+      // console.log(Clubs);
+    });}
     getClubs();
   }
   ,[Clubs]);

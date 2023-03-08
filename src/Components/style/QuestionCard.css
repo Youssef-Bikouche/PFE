@@ -38,11 +38,19 @@
   display: flex;
   flex-wrap: wrap;
 }
-.likes{
-  border: 3px solid olive;
+.likes,.likes-number{
+  /* border: 3px solid olive; */
   width: 80%;
   height: 40%;
+  font-size: 50px;
+  text-align: center;
+  cursor: pointer;
+  color: red;
 }
+.likes-number{
+  font-size: x-large;
+}
+
 .QuestionCard div{
   padding: 10px;
   margin-bottom: 5px;

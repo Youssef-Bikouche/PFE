@@ -26,19 +26,24 @@
   font-weight: 500;
   font-style: italic;
   border-radius: 3px;
+
 }
 .filiere-container:hover{
   box-shadow: inset 300px 0px 5px 20px blue;
 }
+.filiere-container:hover .filiere-option{
+  display: block;
+}
 .filiere-option{
   position: absolute;
-  display: block;
+  display: none;
   left: 0;
   bottom: -30px;
   width: 100%;
   height: auto;
   transition: box-shadow 0.7s;
   box-shadow: inset 0px 30px 2px 12px #4b4b4d;
+  animation: display 0.7s;
 }
 .filiere-option div{
   border-bottom: 1px solid white;

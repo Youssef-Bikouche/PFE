@@ -8,6 +8,7 @@ import Filiere from "./Components/Filiere";
 import Loginn from "./Components/Loginn";
 import Register from "./Components/Register";
 import Clubs from "./Components/Clubs";
+import Reponse from "./Components/Reponse";
 function App() {
   return (
   <Router>
@@ -23,7 +24,13 @@ function App() {
           <Route exact path='/SearchClicked' element={<>
           <Navbar/>
           <SearchClicked />
+        
           </>} />
+          <Route exact path='/Reponse' element={<>
+          <Navbar/>
+          <Reponse />
+          </>} />
+         
           <Route exact path='/Login' element={<Loginn />} />
           <Route exact path='/Clubs' element={<>
           <Navbar />
