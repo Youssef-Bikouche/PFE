@@ -38,15 +38,16 @@
   display: flex;
   flex-wrap: wrap;
 }
-.likes,.likes-number{
+.likes,.likes-number.liked-heart{
   /* border: 3px solid olive; */
   width: 80%;
   height: 40%;
   font-size: 50px;
   text-align: center;
   cursor: pointer;
-  color: red;
+  color: white;
 }
+
 .likes-number{
   font-size: x-large;
 }
@@ -94,6 +95,16 @@
   margin-top: 20px;
 }
 .nbr-responses{
-
  font-weight: 550;
+}
+.likes{
+  color: white;
+}
+.liked-heart{
+  color: red;
+  width: 80%;
+  height: 40%;
+  font-size: 50px;
+  text-align: center;
+  cursor: pointer;
 }

@@ -6,7 +6,7 @@ import "./style/SearchClicked.css";
 import "./style/Side.css";
 import waiting from "./images/waiting.gif";
 import { library} from '@fortawesome/fontawesome-svg-core';
-import { faSearch,faClose } from '@fortawesome/free-solid-svg-icons';
+import { faSearch,faClose,faHeart } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from "react";
 import { useEffect } from "react";
@@ -137,7 +137,7 @@ const SearchClicked = ({props}) => {
           </div>
         ) : (
           <div className="empty">
-             <h1 style={{textAlign: 'center',marginTop: '20px'}}>No Club found </h1>
+             <h1 style={{textAlign: 'center',marginTop: '20px'}}>No Questions found </h1>
              <img className="waiting" src={waiting} alt="⌛"/>            
           </div>
       )}  

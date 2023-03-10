@@ -8,4 +8,156 @@
  background-color: white;
  overflow-y: scroll;
  z-index: 99;
+
+ 
 }
+
+
+.back-toQuestion a{
+ text-decoration: none;
+  list-style: none;
+  color: #FF6A3D;
+ font-size: xx-large;
+ margin: 1%;
+
+}
+.ResponseCard{
+ display: flex;
+ flex-direction: row;
+ background-color: #ebebeb;
+ height: 300px;
+ width: 100%;
+ color: black;
+ font-size: larger;
+ font-weight: 500;
+ padding: 10px 20px;
+ margin-bottom: 40px;
+ border: 1px solid black;
+ border-radius: 20px;
+}
+.left-side-Response{
+ width: 10%;
+ height: 100%;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+}
+.infoResponse-postage{
+ width: 100%;
+ 
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+}
+.Response{
+ font-size: x-large;
+ font-weight: 500;
+ text-align: center;
+}
+.right-side-Response{
+ width: 90%;
+ height: 100%;
+ 
+ display: flex;
+ flex-wrap: wrap;
+}
+.likes,.likes-number.liked-heart{
+ /* border: 3px solid olive; */
+ width: 80%;
+ height: 40%;
+ font-size: 50px;
+ text-align: center;
+ cursor: pointer;
+ color: white;
+}
+
+.likes-number{
+ font-size: x-large;
+}
+
+.ResponseCard div{
+ padding: 10px;
+ margin-bottom: 5px;
+}
+.ResponseBord{
+ display: flex;
+ flex-direction: column;
+ width: 100%;
+}
+.ResponseCard button{
+ width: 10%;
+ background-color: rgb(83, 175, 206);
+ color: white;
+ text-align: center;
+ border-radius: 12px;
+ border: none;
+ padding: 10px 12px;
+ font-size: medium;
+ font-weight: 500;
+ float: right;
+ transition: background-color 0.6s;
+}
+.ResponseCard button:hover{
+ background-color: blue;
+ cursor: pointer;
+}
+.ResponseCard-details{
+display: flex;
+margin: 10px;
+justify-content: space-between;
+align-items: center;
+width: 100%;
+}
+.Nomuser{
+ font-size: medium;
+font-weight: 550;
+text-transform: uppercase;
+}
+.logo-user{
+ font-size: xx-large;
+ margin-top: 20px;
+}
+.nbr-responses{
+font-weight: 550;
+}
+.likes{
+ color: white;
+}
+.liked-heart{
+ color: red;
+ width: 80%;
+ height: 40%;
+ font-size: 50px;
+ text-align: center;
+ cursor: pointer;
+}
+/*****************/
+.inputResponse{
+margin-bottom: 10px;
+display: flex;
+justify-content: space-around;
+}
+.inputResponse .input textarea{
+  font-size: larger;
+  color: #1A2238;
+  font-weight: 500;
+  padding: 2%;
+  border-radius: 10px;
+}
+.posteResponse{
+ width: 15%;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+.Btn-postResponse{
+ width: 90%;
+ border-radius: 12px;
+ border: none;
+ font-size: large;
+ height: 30px;
+ background-color: lightsalmon;
+ color: white;
+ cursor: pointer;
+}
+
