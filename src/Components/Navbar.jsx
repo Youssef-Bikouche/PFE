@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 
+import axios from "axios";
 library.add(faSearch);
 const Navbar = () => {
   const [islogin,setislogin]=useState(false);//if the user is connected , it  will be true
@@ -20,7 +21,28 @@ const Navbar = () => {
     setislogin(false);
    }
   }
-  
+  /************************* */
+  const [filieresDUT,setfilieresDUT]=useState('');
+  const [filieresLP,setfilieresLP]=useState('');
+  useEffect(()=>{
+  const getFiliereDUT = async event => {
+    await axios.post('http://localhost:8080/pfe/src/Components/PHP/FiliereDUT.php').then((result)=>{
+    setfilieresDUT(result.data.data);// utiliser pour le selecteur des filieres dynamiquement
+  });}
+  const getFiliereLP = async event => {
+    await axios.post('http://localhost:8080/pfe/src/Components/PHP/FiliereLP.php').then((result)=>{
+    setfilieresLP(result.data.data);// utiliser pour le selecteur des filieres dynamiquement
+  });}
+  getFiliereDUT();
+  getFiliereLP();
+},[]);
+
+/********************************** */
+
+const navigteToreponse=()=>{
+   navigate('/Reponse',{state:{}});
+}
+  /********************************** */
   const clearLocalStorage = () => {
     localStorage.removeItem('token');
     setislogin(false);//user is not connected , show login and register
@@ -48,7 +70,33 @@ const Navbar = () => {
             <div>3</div>
           </div>
           </li>
-          <li><Link to='/Filiere'>Filieres</Link></li>
+
+          <li className='filiere-link'>filieres<span style={{marginLeft: "5px",fontSize: "small"}}>▼</span>
+          <div className="filieres">
+           <div className="DUT">
+               <div >DUT</div>
+              <div className="DUT-filieres">
+              {filieresDUT?.length > 0 ? (
+              filieresDUT.map((filiere) => (
+                <div>{filiere.nom}</div>
+              ))):(<>
+              </>)}
+              
+               </div>
+            </div> 
+            <div className="LP">
+               <div >LP</div>
+              <div className="LP-filieres">
+              {filieresLP?.length > 0 ? (
+              filieresLP.map((filiere) => (
+                <Link to="/Filiere"> <div>{filiere.nom}</div></Link>
+              ))):(<>
+              </>)}
+               </div>
+            </div>
+          </div>
+          </li>
+          {/* <li><Link to='/Filiere'>Filieres</Link></li> */}
           <li><Link to='/Clubs'>Clubs</Link></li>
           <li><Link to='/SearchClicked'><FontAwesomeIcon icon="search" className="search"/></Link></li>
         </ul>

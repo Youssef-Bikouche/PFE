@@ -34,10 +34,11 @@ const Loginn = () => {
         username,
         password,
       }).then((result)=>{
-       
+       console.log(result.data);
       if (result.data.data.status=='valid') {
         localStorage.setItem('token','verified');
         localStorage.setItem('username',username);
+        localStorage.setItem('id',result.data.data.id);
         navigate("/Home");
       } else {
         setError(result.data.data.status);

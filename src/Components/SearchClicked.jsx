@@ -87,13 +87,16 @@ const SearchClicked = ({props}) => {
 
  const [selectedOption, setSelectedOption] = useState('');
  const [QuestionPosed, setQuestionPosed] = useState('');
+ const id=localStorage.getItem('id');
   const PosteQuestion= async event => {
     try {
       await axios.post('http://localhost:8080/pfe/src/Components/PHP/PostedQuestion.php', {
         selectedOption,
         QuestionPosed,
         username,
+        id,
       }).then((result)=>{
+        console.log(result.data);
       if (result.data.data.status=='ok') {
         clickcloseQuestion();
       } 

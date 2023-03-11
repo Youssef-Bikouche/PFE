@@ -94,7 +94,7 @@ height: 40%;
   text-decoration: none;
   color: white;
 }
-.department-link{
+.department-link,.filiere-link{
   position: relative;
 }
 .departments{
@@ -109,8 +109,23 @@ height: 40%;
   transition: opacity 0.7s;
   transform: scale(1.02);
 }
+.filieres{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  left: -60px;
+  width: 200px;
+  visibility:hidden;
+  transition: opacity 0.7s;
+  transform: scale(1.02);
+}
 .department-link:hover .departments{
   visibility:visible;
+}
+.filiere-link:hover .filieres{
+  visibility:visible;
+  z-index: 1;
 }
 .departments div{
   border-bottom: 1px solid black;
@@ -126,11 +141,98 @@ height: 40%;
 .departments-link .departments div:hover{
   background-color: #1A2238;
 }
+.filieres div{
+  border-bottom: 1px solid black;
+  background-color: #7b8df0;
+  width: 100%;
+  color: white;
+  text-align: center;
+  transition: box-shadow 0.7s;
+ 
+}
+.filieres div:hover{
+  box-shadow: inset 300px 0px 5px #1A2238;
+  
+}
+.filiere-link .filieres div:hover{
+  background-color: #1A2238;
+}
+/*************** hover of DUT ********/
+.DUT{
+  position: relative;
+  color: white;
+  font-size: large;
+  font-weight: 500;
+  cursor: pointer;
+}
+.DUT-filieres{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: medium;
+  left: 201px;
+  top: 1px;
+  width: 200px;
+visibility: hidden;
+  transition: opacity 0.7s;
+  transform: scale(1.02);
+}
+.DUT-filieres div{
+  border-bottom: 1px solid black;
+  background-color: #7b8df0;
+  width: 100%;
+  color: white;
+  text-align: center;
+  transition: box-shadow 0.7s;
+  min-height: 30px;
+}
+.DUT:hover .DUT-filieres{
+visibility: visible;
+}
+
+/*************** hover of LP ********/
+.LP{
+  position: relative;
+  color: white;
+  font-size: larger;
+  font-weight: 500;
+  cursor: pointer;
+}
+.LP-filieres{
+  position: absolute;
+  display: flex;
+  font-size: medium;
+  flex-direction: column;
+  align-items: center;
+  left: 201px;
+  top: 1px;
+  width: 200px;
+visibility: hidden;
+  transition: opacity 0.7s;
+  transform: scale(1.02);
+}
+.LP-filieres div{
+  border-bottom: 1px solid black;
+  background-color: #7b8df0;
+  width: 100%;
+  color: white;
+  text-align: center;
+  transition: box-shadow 0.7s;
+  min-height: 30px;
+}
+.LP:hover .LP-filieres{
+visibility: visible;
+}
+
 .links a{
   list-style: none;
   text-decoration: none;
   color: white;
 }
-
-
-
+.DUT-filieres a{
+  width: 100%;
+}
+.LP-filieres a{
+  width: 100%;
+}

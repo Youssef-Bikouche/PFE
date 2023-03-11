@@ -10,10 +10,12 @@ if($method=="POST"){
 $nom=$data->username;
 $question=$data->QuestionPosed;
 $filier=$data->selectedOption;
+$id=$data->id;
 $posted=date('Y-m-d h:m:i A').PHP_EOL;
 try{ $db = new PDO('mysql:host=localhost;dbname=pfe', 'root', '');
- $req = $db->prepare('insert into questions (nom,question,filiere,posted) values("'.$nom.'","'.$question.'","'.$filier.'","'.$posted.'");');
+ $req = $db->prepare('insert into questions (nom,question,filiere,posted,id_User) values("'.$nom.'","'.$question.'","'.$filier.'","'.$posted.'","'.$id.'");');
  $req->execute();
+ $res=$req->fetchAll();
  $response['data']=array('status'=>'ok');
    echo json_encode($response);
 }catch(PDOException $e){

@@ -160,4 +160,31 @@ justify-content: space-around;
  color: white;
  cursor: pointer;
 }
-
+.pop-login-reponse{
+  background-color: black;
+color: white;
+display: flex;
+align-items: center;
+justify-content: center;
+min-height: 20%;
+}
+.inputResponse-notLogin{
+  position: relative;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-around;
+  cursor: not-allowed;
+  }
+.inputResponse-notLogin::after{
+  content: "Login first ";
+  position: absolute;
+  top: -5px; left: -20px; right: -20px; bottom: -5px;
+  color: white;
+  display: flex;
+  font-size: x-large;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  

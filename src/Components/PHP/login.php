@@ -10,13 +10,13 @@ if($method=="POST"){
   $username=$data->username;
   $password=$data->password;
  try{ $db = new PDO('mysql:host=localhost;dbname=pfe', 'root', '');
-  $req = $db->prepare('select username from users where username="'.$username.'" and password="'.$password.'"');
+  $req = $db->prepare('select username,id from users where username="'.$username.'" and password="'.$password.'"');
   $req->execute();
   $res = $req->fetchAll();
 
 if($res!=null){
    if(isset($res) && $res[0][0]==$username){
-    $response['data']=array('status'=>'valid');
+    $response['data']=array('status'=>'valid','id'=>$res[0][1]);
     echo json_encode($response);
   } else {
     // Return error message

@@ -49,6 +49,7 @@ const Reponse = () => {
       setReponses(result.data.data);
     });}
     getReponses();
+    
   }
   ,[]);
 
@@ -56,6 +57,8 @@ const Reponse = () => {
   const [reponse,setReponse]=useState('')
   const PostAnswer= async event => {
     const idQuestion=dataQuestion.id;
+    console.log(popLogin);
+      console.log("hana dkhelt ")
     if (username.length!=0 && idQuestion.length!=0 && reponse.length!=0) {
       try {
         await axios.post('http://localhost:8080/pfe/src/Components/PHP/PostReponse.php', {
@@ -72,6 +75,8 @@ const Reponse = () => {
         setError('An error occurred');
       }}
     }
+    
+  
     
 
 
@@ -97,26 +102,30 @@ const Reponse = () => {
                   </div>
                 </div>
                 </div>
-    {popLogin? 
-    <div className="pop-login">
-      <div className="container-popLogin">
-        <div className="close-pop"onClick={()=>{clickclose()}}>
-          <FontAwesomeIcon icon="close"/>
-        </div>   
-      <div className="pop-text">Oops ,Login first!</div>
-      </div>
-    </div>
-    :(
-      <div className="inputResponse">
+    
+  
+    {popLogin ?
+      ( <div className="inputResponse-notLogin">
       <div className="input">
-         <textarea  onChange={(event)=>setReponse(event.target.value)} name="" id="" cols="110" rows="10" placeholder="post your answer here!"></textarea>
+        <textarea  onChange={(event)=>setReponse(event.target.value)} name="" id="" cols="110" rows="10" placeholder="post your answer here!"></textarea>
       </div>
       <div className="posteResponse">
-        <button className="Btn-postResponse" onClick={()=>PostAnswer()}>Post</button>
+        <button className="Btn-postResponse" disabled onClick={()=>PostAnswer()}>Post</button>
       </div>
-      </div>
+  </div>)
+   :(
+    <div className="inputResponse">
+        <div className="input">
+          <textarea  onChange={(event)=>setReponse(event.target.value)} name="" id="" cols="110" rows="10" placeholder="post your answer here!"></textarea>
+        </div>
+        <div className="posteResponse">
+          <button className="Btn-postResponse" onClick={()=>PostAnswer()}>Post</button>
+        </div>
+    </div>
     )
-    }
+      }
+   
+    
     <div className="reponses">
           {Reponses?.length > 0 ? (
             <>
@@ -135,7 +144,7 @@ const Reponse = () => {
                                     <div className="ResponseCard-details">
                                     </div>
                                   </div>
-                                </div>
+              </div>
             ))}
             </>
         ):(
