@@ -18,7 +18,7 @@ const Reponse = () => {
   const [Reponses,setReponses]=useState('');
 
   /******************************************** */
-  const [color, setColor] = useState(false);
+
 /******************************** */
   const [popLogin, setpopLogin] = useState(false);
   const [popQuestion, setpopQuestion] = useState(false);
@@ -51,7 +51,7 @@ const Reponse = () => {
     getReponses();
     
   }
-  ,[]);
+  ,[Reponses]);
 
   /**************************************** */
   const [reponse,setReponse]=useState('')

@@ -9,7 +9,7 @@ import { library} from '@fortawesome/fontawesome-svg-core';
 import { faSearch,faClose,faHeart } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useState } from "react";
-import { useEffect } from "react";
+import { useEffect,useReducer } from "react";
 import axios from "axios";
 library.add(faSearch);
 library.add(faClose);
@@ -84,7 +84,10 @@ const SearchClicked = ({props}) => {
     getQuestions();
   }
  /*****************************************************************************************************/
-
+ useEffect(() => {
+  getQuestions();
+  console.log("aa");
+})
  const [selectedOption, setSelectedOption] = useState('');
  const [QuestionPosed, setQuestionPosed] = useState('');
  const id=localStorage.getItem('id');
@@ -99,6 +102,7 @@ const SearchClicked = ({props}) => {
         console.log(result.data);
       if (result.data.data.status=='ok') {
         clickcloseQuestion();
+       
       } 
       });
     } catch (error) {

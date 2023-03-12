@@ -16,6 +16,10 @@ width: 88%;
 height: 100%;
 background-color: white;
 overflow-y: scroll;
+background-image: url(/src/Components/images/Clubs/bg3.png);
+  background-size:cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 
 .Searchbar{

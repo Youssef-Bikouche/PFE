@@ -1,0 +1,189 @@
+.Filiere{
+ position: relative;
+ top:10%;
+ text-align: center;
+ width: 100%;
+  height: 100%;
+ background-color: e5e5e5; 
+ display: flex;
+ flex-direction: column;
+}
+.filiere-pic{
+  position: relative;
+}
+.pic{
+ width: 100%;
+ min-height: 670px;
+
+}
+.pic img{
+ width: 100%;
+ height: 100%;
+ filter: blur(2px);
+}
+.diplome-name{
+  position: absolute;
+  font-size: 50px;
+  color: white;
+  top: 40%;
+  left: 2%;
+  font-weight: 600;
+  width: 700px;
+}
+
+.diplome-name span{
+ color: #FF6A3D;
+ font-weight: 900;
+}
+.filiere-info{
+  width: 100%;
+  min-height: 300vh;
+  background-image: url(/src/Components/images/filierePresentation.png);
+  background-size:cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+.presentation h1,.objectif h1,.Modalites h1,.Organisation h1,.modulaire h1,.Poursuit h1{
+  margin: 30px 0px;
+  font-weight: 650;
+  font-size: 70px;
+  font-style: italic;
+  margin-right: 20px;
+  animation: titles 10s infinite linear;
+}
+.presentation p,.objectif p,.Modalites p,.Organisation p,.Poursuit p{
+  font-size: x-large;
+  font-weight: 500;
+  margin-bottom: 80px;
+}
+
+.presentation,.objectif,.Modalites,.Organisation{
+  width: 70%;
+  float: right;
+}
+.objectif div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.objectif img{
+  height: 60px;
+  width: 70px;
+}
+.modulaire{
+  width: 80%;
+  height: auto;
+  float: right;
+  padding: 20px;
+}
+.annee1,.annee2{
+  height: 50%;
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.module{
+display: flex;
+
+justify-content: baseline;
+}
+.module div{
+  height: 50px;
+  font-size: x-large;
+  font-weight: 600;
+  color: #cba856;
+}
+.module .M{
+  width: 20%;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #cba856;
+}
+.module .subject{
+  width: 80%;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: blueviolet;
+  font-size: larger;
+}
+#code{
+  background-color: #cba856;
+  color: white;
+}
+#Intitule{
+  background-color: #805022;
+  color: white;
+}
+.semestre{
+  border-radius: 12px;
+  width: 45%;
+  height: 100%;
+  animation: rotate 15s infinite linear;
+}
+
+.semestre-number{
+  font-size: xx-large;
+  font-weight: 600;
+  font-style: italic;
+  margin: 10px;
+
+}
+@keyframes rotate{
+  0%{
+    box-shadow: 4px 0px 15px #FF6A3D;
+  }
+  10%{
+    box-shadow: 0px -4px 15px #FF6A3D;
+  }
+  20%{
+    box-shadow: -4px 0px 0px #FF6A3D;
+  }
+  30%{
+    box-shadow: 0px 4px 15px #FF6A3D;
+  }
+  40%{
+    box-shadow: 4px 0px 15px #FF6A3D;
+  }
+  50%{
+    box-shadow: 0px -4px 0px #FF6A3D;
+  }
+  60%{
+    box-shadow: -4px 0px 15px #FF6A3D;
+  }
+  70%{
+    box-shadow: 0px 4px 15px #FF6A3D;
+  }
+  80%{
+    box-shadow: 4px 0px 15px #FF6A3D;
+  }
+  90%{
+    box-shadow: 0px -4px 15px #FF6A3D;
+  }
+  100%{
+    box-shadow: -4px 0px 15px #FF6A3D;
+  }
+
+}
+@keyframes titles{
+  0%{
+    color: #492815;
+  }
+  25%{
+    color: #be8d48;
+  }
+  50%{
+   color: #dcaf5e;
+  }
+  75%{
+   color: #edcd76;
+  }
+  100%{
+    color: #c6be70;
+  }
+
+}

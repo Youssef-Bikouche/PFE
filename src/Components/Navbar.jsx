@@ -39,8 +39,8 @@ const Navbar = () => {
 
 /********************************** */
 
-const navigteToreponse=()=>{
-   navigate('/Reponse',{state:{}});
+const navigteToFiliere=(diplome,id)=>{
+   navigate('/Filiere',{state:{id:id,diplome:diplome}});
 }
   /********************************** */
   const clearLocalStorage = () => {
@@ -78,7 +78,7 @@ const navigteToreponse=()=>{
               <div className="DUT-filieres">
               {filieresDUT?.length > 0 ? (
               filieresDUT.map((filiere) => (
-                <div>{filiere.nom}</div>
+                <div onClick={()=>{navigteToFiliere(filiere.Diplome,filiere.id)}}>{filiere.nom}</div>
               ))):(<>
               </>)}
               
@@ -89,7 +89,7 @@ const navigteToreponse=()=>{
               <div className="LP-filieres">
               {filieresLP?.length > 0 ? (
               filieresLP.map((filiere) => (
-                <Link to="/Filiere"> <div>{filiere.nom}</div></Link>
+                <div onClick={()=>{navigteToFiliere(filiere.Diplome,filiere.id)}}>{filiere.nom}</div>
               ))):(<>
               </>)}
                </div>
