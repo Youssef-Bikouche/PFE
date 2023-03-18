@@ -51,16 +51,27 @@ const navigteToFiliere=(diplome,id)=>{
   };
   useEffect(()=>{
       checkLogin();//chechks the login state on every render
+      const handleScroll = () => {
+        if (window.scrollY > 100) {
+          setScrolled(true);
+        } else {
+          setScrolled(false);
+        }
+      }
+      window.addEventListener('scroll', handleScroll);
+
   },[]);
 
- 
+  const [scrolled,setScrolled]=useState(false);
+  const navbarClassName = `Navbar ${scrolled ? 'Navbar-scrolled' : ''}`;
+
   return ( 
-    <div className="Navbar">
+    <div className={navbarClassName} data-aos="fade-up">
       <div className="logo"><img src={logo} alt="logo" /></div>
       <div className="links">
         <ul>
           <li><Link to='/Home'>Home</Link></li>
-          <li className='department-link'>Départements <span style={{marginLeft: "5px",fontSize: "small"}}>▼</span>
+          {/* <li className='department-link'>Départements <span style={{marginLeft: "5px",fontSize: "small"}}>▼</span>
           <div className="departments">
             <div>1</div>
             <div>2</div>
@@ -69,8 +80,8 @@ const navigteToFiliere=(diplome,id)=>{
             <div>2</div>
             <div>3</div>
           </div>
-          </li>
-
+          </li> */}
+     
           <li className='filiere-link'>filieres<span style={{marginLeft: "5px",fontSize: "small"}}>▼</span>
           <div className="filieres">
            <div className="DUT">
@@ -98,6 +109,7 @@ const navigteToFiliere=(diplome,id)=>{
           </li>
           {/* <li><Link to='/Filiere'>Filieres</Link></li> */}
           <li><Link to='/Clubs'>Clubs</Link></li>
+           <li><Link to='/Reviews'>Témoignages</Link></li>
           <li><Link to='/SearchClicked'><FontAwesomeIcon icon="search" className="search"/></Link></li>
         </ul>
       </div>

@@ -9,6 +9,7 @@ import Loginn from "./Components/Loginn";
 import Register from "./Components/Register";
 import Clubs from "./Components/Clubs";
 import Reponse from "./Components/Reponse";
+import Reviews from "./Components/Reviews";
 function App() {
   return (
   <Router>
@@ -21,13 +22,15 @@ function App() {
             <Navbar />
             <Home /></>
         }/>
+        <Route exact path='/Reviews' element={<>
+            <Navbar />
+            <Reviews/></>
+        }/>
           <Route exact path='/SearchClicked' element={<>
-          <Navbar/>
           <SearchClicked />
         
           </>} />
           <Route exact path='/Reponse' element={<>
-          <Navbar/>
           <Reponse />
           </>} />
          

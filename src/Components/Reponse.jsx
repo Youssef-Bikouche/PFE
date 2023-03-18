@@ -88,7 +88,7 @@ const Reponse = () => {
                           <div className="QuestionCard" key={dataQuestion.id} >
                 <div className='left-side-question'>
                     <div className="logo-user"><FontAwesomeIcon icon="user" className="user-icon"/></div>
-                    <div className="likes-number">11</div>
+                    {/* <div className="likes-number">11</div> */}
                 </div>
                 <div className='right-side-question'>
                     <div className="info-postage">
@@ -98,7 +98,6 @@ const Reponse = () => {
                     </div>
                     <div className="Question">{dataQuestion.question}</div>
                     <div className="QuestionCard-details">
-                      <div className="nbr-responses">15 reponse</div>
                   </div>
                 </div>
                 </div>

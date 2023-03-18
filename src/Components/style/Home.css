@@ -1,10 +1,132 @@
 .Home{
   position: absolute;
-  top:11%;
   text-align: center;
   font-size: xx-large;
   width: 100%;
-  height: 100%;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-color: white;
-  padding-top: 100px;
+}
+.home-picture{
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background:linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),url(/src/Components/images/homePic.png);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+.home-picture span{
+  position: absolute;
+  right: 1%;
+  top: 40%;
+  font-size: 50px;
+  font-family:'Montserrat';
+  /* font-style: italic; */
+  color: white;
+  font-weight: 800;
+}
+span p{
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: 550;
+  font-size: x-large;
+  margin-top: 10px;
+  color:#FF6A3D;
+  text-shadow: 3px 1px 10px black;
+}
+.home-why{
+  width: 100%;
+  height: auto;
+  flex-direction: column;
+  align-items: center;
+  padding: 4%;
+}
+.home-why span{
+color: black;
+width: 100%;
+text-align: center;
+height: 20%;
+font-family: Helvetica,Arial,sans-serif;
+font-size: 35px;
+font-weight: 900;
+}
+.why-container{
+  margin-top: 20px;
+  width: 100%;
+  height: 80%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.why-card{
+  height: 250px;
+  width:20%;
+  margin: 2px;
+  flex-direction: column;
+  align-items: center;
+}
+.why-img{
+  width: 100%;
+  height: 60%;
+  display: flex;
+justify-content: center;
+align-items: center;
+}
+.why-img img{
+  width: 50%;
+}
+.why-info{
+  height: 40%;
+  width: 100%;
+  text-align: center;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.why-info span{
+font-size: 40px;
+font-weight: 500;
+font-family:  Helvetica,Arial,sans-serif;
+
+}
+/***********************/
+.information{
+  height: auto;
+  width: 100%;
+  /* border:2px solid#FF6A3D; */
+  display: flex;
+justify-content: space-between;
+margin: 50px;
+align-items: center;
+}
+.img-info{
+  width: 40%;
+  height: 100%;
+  border-radius: 12px;
+/* border: 3px solid black; */
+
+}
+.img-info img{
+width: 80%;
+border-radius: 12px;
+
+}
+.info{
+  /* border: 2px solid blue; */
+  width: 60%;
+  height: 100%;
+padding: 20px;
+font-size: x-large;
+font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.info p{
+ text-align: justify;
+}
+.info h1{
+  color: #FF6A3D;
+  margin: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }

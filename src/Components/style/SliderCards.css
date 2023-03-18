@@ -8,7 +8,7 @@
  animation: rotateCard 15s infinite linear;
  margin: 15px 0;
  border: 1px solid black;
-
+ margin-top: 60px;
 }
 .one-slider-card .image{
 width: 100%;

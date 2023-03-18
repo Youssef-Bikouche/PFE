@@ -1,18 +1,20 @@
 import React from "react";
-import Side from "./Side";
 import QuestionCard from "./questionCard";
 import FiliereCard from "./Filierecard";
 import "./style/SearchClicked.css";
 import "./style/Side.css";
 import waiting from "./images/waiting.gif";
-import { library} from '@fortawesome/fontawesome-svg-core';
 import { faSearch,faClose,faHeart } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Link, useNavigate } from "react-router-dom";
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faUser,faLock, faWeight} from '@fortawesome/free-solid-svg-icons';
 import { useState } from "react";
 import { useEffect,useReducer } from "react";
 import axios from "axios";
 library.add(faSearch);
 library.add(faClose);
+library.add(faUser,faLock);
 const SearchClicked = ({props}) => {
   const [error, setError] = useState('');
   /*********************************get questions by filiere****************************************/
@@ -22,8 +24,6 @@ const SearchClicked = ({props}) => {
       searchFiliere,
     }).then((result)=>{
     setquestions(result.data.data);
-    console.log(searchFiliere);
-    
   });}
   useEffect(()=>{
     getQuestionsByfiliere();
@@ -64,9 +64,18 @@ const SearchClicked = ({props}) => {
     });}
     getFiliere();
     getQuestions();
+    // const handleScroll = () => {
+    //   if (window.scrollY > 100) {
+    //     setScrolled(true);
+    //   } else {
+    //     setScrolled(false);
+    //   }
+    // }
+    // content.addEventListener('scroll', handleScroll);
   }
   ,[]);
-
+  // const [scrolled,setScrolled]=useState(false);
+  // const navbarClassName = `Navbar ${scrolled ? 'Navbar-scrolled' : ''}`;
   /******************************************* *************************************************/
     const [Questions,setquestions]=useState('');
     const [searchTerm,setsearchTerm]= useState('');
@@ -84,30 +93,24 @@ const SearchClicked = ({props}) => {
     getQuestions();
   }
  /*****************************************************************************************************/
- useEffect(() => {
-  getQuestions();
-  console.log("aa");
-})
+ 
  const [selectedOption, setSelectedOption] = useState('');
  const [QuestionPosed, setQuestionPosed] = useState('');
  const id=localStorage.getItem('id');
-  const PosteQuestion= async event => {
-    try {
-      await axios.post('http://localhost:8080/pfe/src/Components/PHP/PostedQuestion.php', {
-        selectedOption,
-        QuestionPosed,
-        username,
-        id,
-      }).then((result)=>{
-        console.log(result.data);
-      if (result.data.data.status=='ok') {
-        clickcloseQuestion();
-       
-      } 
-      });
-    } catch (error) {
-      setError('An error occurred');
-    }}
+ const PosteQuestion= async event => {
+  try {
+    await axios.post('http://localhost:8080/pfe/src/Components/PHP/PostedQuestion.php', {
+      selectedOption,
+      QuestionPosed,
+      username,
+      id,
+    }).then((result)=>{
+    if (result.data.data.status=='ok') {
+      clickcloseQuestion();
+    } 
+    });
+  } catch (error) {
+    setError('An error occurred');}}
  /******************************************* returned components ***********************************************************/ 
  return (
   <div className="search-clicked">
@@ -130,7 +133,8 @@ const SearchClicked = ({props}) => {
     )}  
 
       
-    <div className="content" data-aos="fade-up">
+    <div className="content">
+    <div className="back-home-searchClicked"><Link to='/Home'><FontAwesomeIcon icon="home"/></Link></div>
         <div className="Searchbar">
           <input type="search" placeholder="search here" onChange={(event)=>searchQuestion(event)}/>
           <div className="icon-search"><FontAwesomeIcon icon="search" onClick={()=>searchQuestionIcon()} /></div>

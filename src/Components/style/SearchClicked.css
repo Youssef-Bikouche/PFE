@@ -3,14 +3,11 @@
  width: 100%;
  display: flex;
  flex-wrap: wrap;
- border: 1px solid red;
  background-color: black;
- overflow: scroll;
 }
 .content{
 position: fixed;
 padding: 10px;
-top: 11%;
 right: 0;
 width: 88%;
 height: 100%;
@@ -198,4 +195,18 @@ padding-left: 4%;
 
 .content::-webkit-scrollbar-track {
   background: linear-gradient(90deg,#434343,#434343 1px,#111 0,#111);
+}
+.back-home-searchClicked{
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  top: 30px;
+  right: 20px;
+  font-size: x-large;
+  cursor: pointer;
+}
+.back-home-searchClicked a{
+  text-decoration: none;
+  list-style: none;
+  color: #FF6A3D;
 }

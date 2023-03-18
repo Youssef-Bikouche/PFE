@@ -1,20 +1,16 @@
-body{
-  background-image: url(/src/Components/images/Clubs/bg1.png);
-  background-size:cover;
-  background-position: center;
-  background-attachment: fixed;
-  height:100%;
-}
+
 .Club{
  position: absolute;
- top: 11%;
  width: 100%;
- height: 100%;
- /* padding: 10px; */
+ min-height: 100%;
  display: flex;
  flex-direction: column;
  row-gap: 20px;
  column-gap: 20px;
+ background-image: url(/src/Components/images/Clubs/bg1.png);
+ background-size:cover;
+ background-position: center;
+ background-attachment: fixed;
 }
 .Containercards{
  display: flex;
@@ -26,6 +22,7 @@ align-items: center;
 .ClubSlider{
   width: 100%;
   height: 600px;
+
  }
 /* body::-webkit-scrollbar {
   width: 8px;

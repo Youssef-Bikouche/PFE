@@ -1,5 +1,5 @@
 import "./style/Filiere.css";
-import pic1 from "./images/filiere/1.png";
+// import pic1 from "./images/filiere/1.png";
 import target from "./images/target.png";
 import {useLocation } from 'react-router-dom';
 import { useState,useEffect } from "react";
@@ -12,7 +12,7 @@ const Filiere = () => {
   const [Modules,setModules]=useState('');
   const FiliereId = location.state.id;
   const FiliereDiplome = location.state.diplome;
-
+  const imgg="/filiere/"+FiliereId+".png";
   useEffect(()=>{
     const getFiliereinfo= async event => {
       await axios.post('http://localhost:8080/pfe/src/Components/PHP/getFiliereinfo.php',{
@@ -39,12 +39,13 @@ const Filiere = () => {
     checkDiplome();
     getFiliereinfo();
     getModules();
+    
 },[FiliereId]);
-
+   
   return ( 
     <div className="Filiere">
       <div className="filiere-pic">
-        <div className="pic"><img src={pic1} alt="" /></div>
+        <div className="pic"><img src={imgg} alt="" /></div>
         
           {
             typeDiplome?(
