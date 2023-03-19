@@ -44,7 +44,8 @@ const Reviews = () => {
         }).then((result)=>{
           // console.log("heraaaaaae")
           // console.log(result.data.data);
-          setpostedMessage('your review has been approuved !')
+          setpostedMessage('your review has been approuved !');
+          
         });
       }catch(error){
         setError('An error occurred');

@@ -19,7 +19,7 @@ const Filiere = () => {
         FiliereId,
       }).then((result)=>{
      setFiliere(result.data.data[0]);
-     console.log(result.data.data);
+   
     });}
     const getModules= async event => {
       await axios.post('http://localhost:8080/pfe/src/Components/PHP/getModules.php',{

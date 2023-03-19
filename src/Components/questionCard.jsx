@@ -28,8 +28,6 @@ const id=props.id;
       await axios.post('http://localhost:8080/pfe/src/Components/PHP/nbrReponse.php',{
         id,
       }).then((result)=>{
-         console.log("salam ")
-         console.log(result.data.data[0][0])
          setnbrReponse(result.data.data[0][0]);
      
     });}

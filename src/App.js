@@ -10,6 +10,8 @@ import Register from "./Components/Register";
 import Clubs from "./Components/Clubs";
 import Reponse from "./Components/Reponse";
 import Reviews from "./Components/Reviews";
+import Footer from "./Components/Foot";
+import Foot from "./Components/Foot";
 function App() {
   return (
   <Router>
@@ -20,7 +22,9 @@ function App() {
         }/>
           <Route exact path='/Home' element={<>
             <Navbar />
-            <Home /></>
+            <Home />
+           
+            </>
         }/>
         <Route exact path='/Reviews' element={<>
             <Navbar />
@@ -41,6 +45,7 @@ function App() {
           <Route exact path='/Filiere' element={<>
           <Navbar />
           <Filiere />
+          <Foot />
           </>}/>
           <Route exact path='/Register' element={<Register />} />
         </Routes>    

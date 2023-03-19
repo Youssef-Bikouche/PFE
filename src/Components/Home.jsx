@@ -4,6 +4,9 @@ import question from "./images/question.png";
 import filiere from "./images/filiere.png";
 import club from "./images/clubHome.png";
 import review from "./images/reviewHome.png";
+import Foot from "./Foot";
+
+
 const Home = () => {
  return ( 
   <div className="Home">
@@ -95,7 +98,7 @@ const Home = () => {
           <img src={review}/> 
       </div>
     </div>
-    
+    <Foot />
   </div>
   );
 }

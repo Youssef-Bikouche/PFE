@@ -85,7 +85,7 @@ const navigteToFiliere=(diplome,id)=>{
           <li className='filiere-link'>filieres<span style={{marginLeft: "5px",fontSize: "small"}}>▼</span>
           <div className="filieres">
            <div className="DUT">
-               <div >DUT</div>
+               <div >DIPLÔME UNIVERSITAIRE DE TECHNOLOGIE (DUT)</div>
               <div className="DUT-filieres">
               {filieresDUT?.length > 0 ? (
               filieresDUT.map((filiere) => (
@@ -96,7 +96,7 @@ const navigteToFiliere=(diplome,id)=>{
                </div>
             </div> 
             <div className="LP">
-               <div >LP</div>
+               <div >LICENCE PROFESSIONNELLE (LP)</div>
               <div className="LP-filieres">
               {filieresLP?.length > 0 ? (
               filieresLP.map((filiere) => (

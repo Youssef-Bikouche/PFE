@@ -3,7 +3,9 @@ import QuestionCard from "./questionCard";
 import FiliereCard from "./Filierecard";
 import "./style/SearchClicked.css";
 import "./style/Side.css";
+import "./style/cour.css";
 import waiting from "./images/waiting.gif";
+import { Document, Page } from 'react-pdf/dist/esm/entry.webpack';
 import { faSearch,faClose,faHeart } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link, useNavigate } from "react-router-dom";
@@ -15,6 +17,8 @@ import axios from "axios";
 library.add(faSearch);
 library.add(faClose);
 library.add(faUser,faLock);
+
+
 const SearchClicked = ({props}) => {
   const [error, setError] = useState('');
   /*********************************get questions by filiere****************************************/
@@ -24,6 +28,7 @@ const SearchClicked = ({props}) => {
       searchFiliere,
     }).then((result)=>{
     setquestions(result.data.data);
+    setPopcour(false);
   });}
   useEffect(()=>{
     getQuestionsByfiliere();
@@ -48,6 +53,38 @@ const SearchClicked = ({props}) => {
   const clickcloseQuestion=()=>{
   setpopQuestion(false);
   }
+/******************************************** */
+const [popCour,setPopcour]=useState(false);
+const [filiereNomCour,setfiliereNomCour]=useState();
+const handleCour=(id,filiereNom)=>{
+setfilereID(id);
+setPopcour(true);
+setfiliereNomCour(filiereNom);
+
+// getCourses();
+
+}
+
+const pathCour="/Cours/";
+const [cours,setCours]=useState();
+const [filiereID,setfilereID]=useState();
+useEffect(()=>{
+
+ const getCourses= async event => {
+    await axios.post('http://localhost:8080/pfe/src/Components/PHP/Courses.php',{
+      filiereID,
+    }).then((result)=>{
+    setCours(result.data.data);
+  });}
+  getCourses();
+}
+,[filiereID]);
+
+
+
+const closeCour=()=>{
+  setPopcour(false);
+}
 
   /***************************** fetching questions functions *********************************** */
   const [filieres,setfilieres]=useState('');
@@ -111,6 +148,8 @@ const SearchClicked = ({props}) => {
     });
   } catch (error) {
     setError('An error occurred');}}
+  /***************************************************************** */
+
  /******************************************* returned components ***********************************************************/ 
  return (
   <div className="search-clicked">
@@ -120,7 +159,7 @@ const SearchClicked = ({props}) => {
            <div  className="filiere-container" key={filiere.id}>
                       <p> {filiere.nom}</p>
                       <div className="filiere-option">
-                                  <div className="courses">cours <span>►</span></div>
+                                  <div className="courses" onClick={()=>{ handleCour(filiere.id,filiere.nom)}}>cours <span>►</span></div>
                                   <div className="Q&A" onClick={()=>{ setsearchFiliere(filiere.nom)}}>questions <span>►</span></div>
                       </div>
            </div> 
@@ -166,8 +205,6 @@ const SearchClicked = ({props}) => {
     ):(
     <>    </>
     )}
-    </>
-    <>
     {popQuestion?(
           <div className="container-pop-poseQuestion">
             <div className="post-your-question">
@@ -198,6 +235,66 @@ const SearchClicked = ({props}) => {
  
   }
     </>
+{popCour?(
+   <>
+   {cours?.length > 0 ?(
+     <div className="cours">
+      <div className="courTitle">{filiereNomCour}</div>
+      <div className="close-cour" onClick={()=>{closeCour()}}>
+                      <FontAwesomeIcon icon="close"/>
+              </div>
+
+
+   <div className="pdf-container"> 
+        {cours.map((cour)=>(
+             <div className="pdf-card">   
+                  <iframe src="/Cours/1.pdf"
+                          width="600" 
+                          height="300">
+                  </iframe>   
+                  <div className="cour-info">
+                    <div className="cour-info-section">
+                      <div className="cour-info-1">Cour :</div>
+                      <div className="cour-info-2">{cour.NomCour}</div>
+                    </div>
+                    <div className="cour-info-section">
+                      <div className="cour-info-1">module :</div>
+                      <div className="cour-info-2">{cour.module}</div>
+                    </div>
+                    <div className="cour-info-section">
+                      <div className="cour-info-1">Semester :</div>
+                      <div className="cour-info-2">{cour.Semester}</div>
+                    </div>
+                    <div className="cour-info-section">
+                      <div className="cour-info-1">Posted :</div>
+                      <div>{cour.date}</div>
+                    </div>
+                    
+                  </div>   
+            </div>
+        ))}
+           </div>
+        </div>)
+      
+      
+      :(
+        
+         <div className="cours">
+            <div className="close-cour" onClick={()=>{closeCour()}}>
+                            <FontAwesomeIcon icon="close"/>
+            </div>
+           <span class-name='cours-NotAvaible' style={{fontSize: 'xx-large',fontWeight: 600}}> No cours avaible </span>
+        </div>
+        
+      )
+     
+  }
+  </>
+):(
+  <>
+</>
+)
+} 
   </div>
   );
 }
