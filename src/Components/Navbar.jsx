@@ -2,13 +2,13 @@ import "./style/Navbar.css";
 import React, { useEffect, useState } from "react";
 import logo from "./images/logo.png";
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faSearch,faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 
 import axios from "axios";
-library.add(faSearch);
+library.add(faSearch,faUser);
 const Navbar = () => {
   const [islogin,setislogin]=useState(false);//if the user is connected , it  will be true
   const navigate=useNavigate();
@@ -35,6 +35,8 @@ const Navbar = () => {
   });}
   getFiliereDUT();
   getFiliereLP();
+checkRole();
+
 },[]);
 
 /********************************** */
@@ -51,6 +53,7 @@ const navigteToFiliere=(diplome,id)=>{
   };
   useEffect(()=>{
       checkLogin();//chechks the login state on every render
+      setUsername(localStorage.getItem('username'));
       const handleScroll = () => {
         if (window.scrollY > 100) {
           setScrolled(true);
@@ -65,24 +68,32 @@ const navigteToFiliere=(diplome,id)=>{
   const [scrolled,setScrolled]=useState(false);
   const navbarClassName = `Navbar ${scrolled ? 'Navbar-scrolled' : ''}`;
 
+/********************************************/
+const [adminLogedIn,setAdminLogedIn]=useState(false);
+const [profLogedIn,setProfLogedIn]=useState(false);
+const checkRole=()=>{
+  if(localStorage.getItem('role')==='admin'){
+    setAdminLogedIn(true);
+    setProfLogedIn(false);
+ }
+ else if(localStorage.getItem('role')==='professeur'){
+  setProfLogedIn(true);
+  setAdminLogedIn(false);
+ }
+ else{
+  setAdminLogedIn(false);
+  setProfLogedIn(false);
+ }
+}
+
+const [username,setUsername]=useState('')
   return ( 
     <div className={navbarClassName} data-aos="fade-up">
       <div className="logo"><img src={logo} alt="logo" /></div>
       <div className="links">
         <ul>
           <li><Link to='/Home'>Home</Link></li>
-          {/* <li className='department-link'>Départements <span style={{marginLeft: "5px",fontSize: "small"}}>▼</span>
-          <div className="departments">
-            <div>1</div>
-            <div>2</div>
-            <div>3</div>
-            <div>1</div>
-            <div>2</div>
-            <div>3</div>
-          </div>
-          </li> */}
-     
-          <li className='filiere-link'>filieres<span style={{marginLeft: "5px",fontSize: "small"}}>▼</span>
+           <li className='filiere-link'>filieres<span style={{marginLeft: "5px",fontSize: "small"}}>▼</span>
           <div className="filieres">
            <div className="DUT">
                <div >DIPLÔME UNIVERSITAIRE DE TECHNOLOGIE (DUT)</div>
@@ -114,12 +125,57 @@ const navigteToFiliere=(diplome,id)=>{
         </ul>
       </div>
       <div className="authentification">
-        {islogin?(
-       <Link to='/login' className="Btn-register"> <button  onClick={()=>clearLocalStorage()}>log out</button></Link>
+        {islogin?(<>
+
+              <div className="icon-user-navbar">
+              <FontAwesomeIcon icon="user" className="user"/>
+              <p>{username}</p> <span style={{fontSize: 'small'}}>▼</span>
+
+                <div className="user-option">
+                  <div className="user-option-ByRole">
+                     {adminLogedIn?(
+                          <Link to='' className="Btn-logOut Btn-gerer"> <button>Gérer site</button>
+                          <div className="gerer-options">
+                          <Link to='/Users' className="Btn-logOut"><button>Gestion utilisateurs</button></Link>
+                          <Link to='/AjoutFiliere' className="Btn-logOut"><button>Ajouter filière</button></Link>
+                          <Link to='' className="Btn-logOut"><button>Ajouter Club</button></Link>
+                          <Link to='' className="Btn-logOut"><button>Supprimer filiere </button></Link>
+                          <Link to='/SupprimerClub' className="Btn-logOut"><button>Supprimer Club</button></Link>
+                          </div>
+                          
+                          </Link>
+                     ):(
+                        <div>
+
+                        </div>
+                     )
+
+                     }
+                     {profLogedIn?(
+                          <Link to='' className="Btn-logOut"><button>Upload Courses</button></Link>
+                     ):(
+                        <div>
+
+                        </div>
+                     )
+
+                     }
+                  <Link to='' className="Btn-logOut"> <button>Demande de document</button></Link>
+                  </div>
+                  <div className="logOut">
+                  <Link to='/login' className="Btn-logOut"> <button  onClick={()=>clearLocalStorage()}>Déconnexion</button></Link>
+                  </div>
+                </div>
+              </div>
+
+
+      </>
         ):(<>
             <Link to='/Login'  className="Btn-login"><button>log in</button></Link>
             <Link to='/Register' className="Btn-register"><button >Register</button></Link>
-        </>)}
+        </>)
+        
+        }
       
       </div> 
     </div>

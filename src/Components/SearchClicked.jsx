@@ -242,13 +242,14 @@ const closeCour=()=>{
       <div className="courTitle">{filiereNomCour}</div>
       <div className="close-cour" onClick={()=>{closeCour()}}>
                       <FontAwesomeIcon icon="close"/>
-              </div>
+      </div>
 
 
    <div className="pdf-container"> 
         {cours.map((cour)=>(
              <div className="pdf-card">   
                   <iframe src="/Cours/1.pdf"
+                          title={cour.NomCour}
                           width="600" 
                           height="300">
                   </iframe>   
@@ -283,7 +284,7 @@ const closeCour=()=>{
             <div className="close-cour" onClick={()=>{closeCour()}}>
                             <FontAwesomeIcon icon="close"/>
             </div>
-           <span class-name='cours-NotAvaible' style={{fontSize: 'xx-large',fontWeight: 600}}> No cours avaible </span>
+           <span className='cours-NotAvaible'> No cours avaible </span>
         </div>
         
       )

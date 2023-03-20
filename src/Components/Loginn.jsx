@@ -39,6 +39,8 @@ const Loginn = () => {
         localStorage.setItem('token','verified');
         localStorage.setItem('username',username);
         localStorage.setItem('id',result.data.data.id);
+        localStorage.setItem('role',result.data.data.role);
+        console.log(localStorage.getItem('role'));
         navigate("/Home");
       } else {
         setError(result.data.data.status);

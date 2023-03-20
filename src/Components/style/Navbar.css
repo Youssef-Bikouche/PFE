@@ -262,3 +262,76 @@ visibility: visible;
 .LP-filieres a{
   width: 100%;
 }
+/************************************/
+
+.icon-user-navbar{
+  position: relative;
+width:100px;
+height:30px;
+/* border: 1px solid red; */
+display: flex;
+color: white;
+align-items: center;
+justify-content: space-around;
+font-size: large;
+cursor: pointer;
+
+}
+.icon-user-navbar:hover .user-option{
+display: block;
+}
+.user-option{
+  display: none;
+  position: absolute;
+  height: auto;
+  width: 200px;
+  top: 30px;
+  align-items: center;
+  flex-direction: column;
+background-color: rgba(255, 255, 255, 0.434);
+border-radius: 10px;
+}
+.Btn-logOut{
+  width: 100%;
+  height: 40%;
+  
+  }
+  .logOut{
+    width: 100%;
+    height: auto;
+  }
+.Btn-logOut button{
+  /* border-radius: 10px 10px 0px 0px; */
+  width: 100%;
+ height: 30px;
+  background-color: #7b8df0;
+  /* border-radius: 15px; */
+  border: none;
+  cursor: pointer;
+  font-size: medium;
+  font-weight: 500;
+  color:white;
+  box-shadow: inset 0 0 0 0 none;
+  transition: box-shadow 0.6s;
+  text-decoration: none;
+   text-align: center;
+   margin-bottom: 2px;
+   margin-top: 4px;
+}
+
+.Btn-gerer{
+  position: relative;
+}
+.gerer-options{
+  position: absolute;
+width: 150px;
+height: auto;
+left: 100%;
+top: 0;
+visibility: hidden;
+background-color: rgba(255, 255, 255, 0.434);
+
+}
+.Btn-gerer:hover .gerer-options{
+visibility: visible;
+}

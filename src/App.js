@@ -12,6 +12,9 @@ import Reponse from "./Components/Reponse";
 import Reviews from "./Components/Reviews";
 import Footer from "./Components/Foot";
 import Foot from "./Components/Foot";
+import Users from "./Components/admin/Users";
+import AjoutFiliere from "./Components/admin/AjoutFiliere";
+import EditClubs from "./Components/admin/EditClub";
 function App() {
   return (
   <Router>
@@ -47,7 +50,21 @@ function App() {
           <Filiere />
           <Foot />
           </>}/>
+
           <Route exact path='/Register' element={<Register />} />
+          <Route exact path='/Users' element={<>
+            <Navbar />
+            <Users /></>
+        }/>
+        <Route exact path='/AjoutFiliere' element={<>
+            <Navbar />
+            <AjoutFiliere /></>
+        }/>
+
+        <Route exact path='/SupprimerClub' element={<>
+            <Navbar />
+            <EditClubs/></>
+        }/> 
         </Routes>    
   </Router>
  

@@ -1,0 +1,98 @@
+.container-AddFiliere{
+ position: fixed;
+ overflow-y: scroll;
+ width: 100%;
+ min-height: 100vh;
+ display: flex;
+justify-content: center;
+padding-top: 100px;
+background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),url(/src/Components/images/useresBackground.png);
+background-position: center;
+background-attachment: fixed;
+background-repeat: no-repeat;
+background-size: cover;
+}
+.post-filiere{
+ position:absolute;
+height: 100%;
+width: 80%;
+display: flex;
+flex-direction: column;
+padding: 20px;
+}
+.post-filiere div{
+ width: 100%;
+display: flex;
+justify-content: space-between;
+
+margin: 10px;
+align-items: center;
+}
+.post-filiere div input{
+ height: 40px;
+ width: 60%;
+ padding: 10px;
+font-size: large;
+}
+.post-filiere select{
+ height: 40px;
+ width: 40%;
+ padding: 10px;
+font-size: medium;
+text-align: center;
+}
+.post-filiere textarea{
+width: 60%;
+height: 100%;
+padding: 10px;
+font-size: large;
+}
+.post-filiere label{
+ color: white;
+ font-size: x-large;
+ font-weight: 600;
+ width: 30%;
+ height: 30px;
+ text-align: center;
+}
+#Responsable{
+ display: block;
+ width: 100%;
+ height: 40px;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+}
+.btn-post-filiere button{
+ width: 40%;
+ height: 30px;
+ background-color: coral;
+ border: none;
+ border-radius: 10px;
+margin: 10px auto;
+}
+.btn-post-filiere{
+ width: 100%;
+}
+.module-add-filiere{
+ width: 100%;
+ height: auto;
+}
+.semester1{
+ width: 100%;
+ height: 400px;
+ display: flex;
+ flex-wrap: wrap;
+ color: coral;
+ font-size: x-large;
+ font-weight: 700;
+}
+.semester2{
+ width: 100%;
+ height: 400px;
+ display: flex;
+ flex-wrap: wrap;
+ color: coral;
+ font-size: x-large;
+ font-weight: 700;
+}

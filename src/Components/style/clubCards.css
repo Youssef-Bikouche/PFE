@@ -8,6 +8,7 @@ justify-content: space-between;
 align-items: center;
 transition: transform 0.7s;
 margin-bottom:30px;
+cursor: pointer;
 }
 .ClubCard-Container:hover::before{
   content: '';
