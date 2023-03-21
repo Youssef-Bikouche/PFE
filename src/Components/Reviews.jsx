@@ -28,6 +28,7 @@ const Reviews = () => {
           setislogin(false);
       }
     }
+    
 /************************************************ */
     const SubmitReview = async event => {
       getReviews();
@@ -62,7 +63,28 @@ const Reviews = () => {
     useEffect(()=>{
       getReviews();
       checkLogin();
+      checkAdmin();
     })
+  /******************************************************* */
+   const [adminDeleteReview,setadminDeleteReview]=useState(false);
+   const checkAdmin=()=>{
+    if(localStorage.getItem('role')==='admin'){
+      setadminDeleteReview(true);
+    }
+    else{
+      setadminDeleteReview(false);
+    }
+    console.log(adminDeleteReview);
+  }
+   const DeleteReview=async (id)=>{
+    await axios.post('http://localhost:8080/pfe/src/Components/PHP/PhpAdmin/DeleteReview.php',{
+      id,
+    }).then((result)=>{
+       console.log("review Deleted");
+       getReviews();
+    })
+   }
+  /******************************************************* */
   return (  
     <div className="main-container-reviews">
       {login ?( 
@@ -123,6 +145,10 @@ const Reviews = () => {
           <div className="user-reviews-container">
             {Reviews.map((review)=>(
               <div className="review-card" key={review.id} >
+                {adminDeleteReview?(
+                   <div className="supprimer-review"><button onClick={()=>DeleteReview(review.id)}>Supprimer</button></div>
+                    ):(<></>)
+                }
                 <div className="logo-user-review"><img src={userReview} alt="" /></div>
                 <div className='top-review'>
                   <div className="Nomuser">by : {review.user}</div>

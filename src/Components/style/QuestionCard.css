@@ -1,4 +1,5 @@
 .QuestionCard{
+  position: relative;
   display: flex;
   flex-direction: row;
   background-color: #ebebeb;
@@ -107,4 +108,23 @@
   font-size: 50px;
   text-align: center;
   cursor: pointer;
+}
+.Delete-question{
+  position: absolute;
+  bottom: 10px;
+  left: 45%;
+}
+.Delete-question button{
+  background-color: rgb(255, 137, 137);
+  cursor: pointer;
+  font-size: medium;
+  padding: 6px 6px;
+  width: 150px;
+}
+.Delete-question button:hover{
+  background-color: rgb(255, 0, 0);
+  cursor: pointer;
+  font-size: medium;
+  padding: 6px 6px;
+  width: 150px;
 }

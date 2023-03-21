@@ -6,13 +6,13 @@ import "./style/Side.css";
 import "./style/cour.css";
 import waiting from "./images/waiting.gif";
 import { Document, Page } from 'react-pdf/dist/esm/entry.webpack';
-import { faSearch,faClose,faHeart } from '@fortawesome/free-solid-svg-icons';
+import { faSearch,faClose } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link, useNavigate } from "react-router-dom";
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faUser,faLock, faWeight} from '@fortawesome/free-solid-svg-icons';
+import { faUser,faLock} from '@fortawesome/free-solid-svg-icons';
 import { useState } from "react";
-import { useEffect,useReducer } from "react";
+import { useEffect} from "react";
 import axios from "axios";
 library.add(faSearch);
 library.add(faClose);
@@ -85,6 +85,7 @@ useEffect(()=>{
 const closeCour=()=>{
   setPopcour(false);
 }
+/*************************** */
 
   /***************************** fetching questions functions *********************************** */
   const [filieres,setfilieres]=useState('');
@@ -129,6 +130,7 @@ const closeCour=()=>{
   const searchQuestionIcon=()=>{
     getQuestions();
   }
+
  /*****************************************************************************************************/
  
  const [selectedOption, setSelectedOption] = useState('');

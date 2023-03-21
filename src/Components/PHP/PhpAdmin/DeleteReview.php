@@ -7,8 +7,9 @@ $data=json_decode(file_get_contents("php://input"));
 $id=$data->id;
 try{ 
  $db = new PDO('mysql:host=localhost;dbname=pfe', 'root', '');
- $req = $db->prepare('DELETE from clubs where id="'.$id.'"');
+ $req = $db->prepare('DELETE from reviews where id="'.$id.'"');
  $req->execute();
+ 
  $response['data']=array('status'=>'valid delete');
    echo json_encode($response);
 }catch(PDOException $e){

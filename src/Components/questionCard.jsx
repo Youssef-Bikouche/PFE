@@ -11,7 +11,6 @@ library.add(faUser);
 library.add(faHeart);
 
 const QuestionCard = ({props}) => {
-
 const [nbrReponse,setnbrReponse]=useState('0');
 const [color, setColor] = useState(false);
 function handleLikeColor() {
@@ -32,10 +31,33 @@ const id=props.id;
      
     });}
    getnbrReponses();
+   checkAdmin();
  })
-
+  /******************************** */
+  const [adminDeleteQuestion,setadminDeleteQuestion]=useState(false);
+   const checkAdmin=()=>{
+    if(localStorage.getItem('role')==='admin'){
+      setadminDeleteQuestion(true);
+    }
+    else{
+      setadminDeleteQuestion(false);
+    }
+    console.log(adminDeleteQuestion);
+  }
+  const DeleteQuestion=async (id)=>{
+  await axios.post("http://localhost:8080/pfe/src/Components/PHP/PhpAdmin/DeleteQuestion.php",{
+   id,
+   }).then(()=>{
+    console.log("Question Deleted");
+   //  props.getQuestions();
+   });
+  }
  return (
   <div className="QuestionCard" key={props.id} >
+   {adminDeleteQuestion ? ( 
+   <div className="Delete-question"><button onClick={()=>DeleteQuestion(props.id)}>Supprimer</button></div>
+   )
+   :(<></>)}
    <div className='left-side-question'>
       <div className="logo-user"><FontAwesomeIcon icon="user" className="user-icon"/></div>
       <div className="likes" ><FontAwesomeIcon className={'likes ' + (color ? 'liked-heart' :'')} onClick={()=>handleLikeColor()} icon="heart"/></div>

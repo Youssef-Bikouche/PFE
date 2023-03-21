@@ -103,7 +103,24 @@ font-size: larger;
   border: none;
   border-radius: 25px;
   opacity: 0.9;
-
+ }
+ .supprimer-review{
+  position: absolute;
+  right: 15px;
+  top: 10px;
+ }
+ .supprimer-review button{
+  background-color: rgb(255, 117, 117);
+  font-size: medium;
+  color: white;
+  border: none;
+  padding: 6px 6px;
+  border-radius: 10px;
+  cursor: pointer;
+  animation: background-color 0.9s;
+ }
+ .supprimer-review button:hover{
+  background-color: red;
  }
 .top-review{
   width: 100%;

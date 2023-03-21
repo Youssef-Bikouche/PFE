@@ -47,6 +47,8 @@ const navigteToFiliere=(diplome,id)=>{
   /********************************** */
   const clearLocalStorage = () => {
     localStorage.removeItem('token');
+    localStorage.removeItem('role');
+    localStorage.removeItem('username');//maybe comeback here if not working
     setislogin(false);//user is not connected , show login and register
     navigate('/Home'); 
     
@@ -138,8 +140,9 @@ const [username,setUsername]=useState('')
                           <div className="gerer-options">
                           <Link to='/Users' className="Btn-logOut"><button>Gestion utilisateurs</button></Link>
                           <Link to='/AjoutFiliere' className="Btn-logOut"><button>Ajouter filière</button></Link>
-                          <Link to='' className="Btn-logOut"><button>Ajouter Club</button></Link>
+                          <Link to='/AjoutClub' className="Btn-logOut"><button>Ajouter Club</button></Link>
                           <Link to='' className="Btn-logOut"><button>Supprimer filiere </button></Link>
+                          <Link to='/Reviews' className="Btn-logOut"><button>Supprimer Reviews </button></Link>
                           <Link to='/SupprimerClub' className="Btn-logOut"><button>Supprimer Club</button></Link>
                           </div>
                           

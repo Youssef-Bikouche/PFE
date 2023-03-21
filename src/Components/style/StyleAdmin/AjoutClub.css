@@ -1,0 +1,58 @@
+.AjoutClub{
+height: 800px;
+width: 100%;
+padding: 10px;
+background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),url(/src/Components/images/useresBackground.png);
+background-position: center;
+background-attachment: fixed;
+background-repeat: no-repeat;
+background-size: cover;
+display: flex;
+justify-content: center;
+}
+.postClub{
+ position: relative;
+ width: 70%;
+ height: 70%;
+ top: 100px;
+display: flex;
+flex-direction: column;
+background-color: rgba(255, 255, 255, 0.371);
+justify-content: center;
+padding: 10px;
+border-radius: 10px;
+}
+.postClub div{
+ margin: 10px;
+ width: 100%;
+ font-size: large;
+ color: black;
+font-weight: 700;
+}
+.addInfoClub textarea{
+ width: 100%;
+ height: 150px;
+ padding: 10px;
+ font-size: large;
+
+}
+.postClub label{
+ width: 40%;
+}
+
+.btn-post-club{
+ display: flex;
+ justify-content: center;
+}
+.btn-post-club button{
+ width: 40%;
+ height: 30px;
+ background-color: coral;
+ border: none;
+ border-radius: 10px;
+margin: 10px auto;
+color: white;
+font-weight: 700;
+font-size: large;
+cursor: pointer;
+}

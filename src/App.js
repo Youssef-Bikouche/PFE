@@ -14,6 +14,7 @@ import Footer from "./Components/Foot";
 import Foot from "./Components/Foot";
 import Users from "./Components/admin/Users";
 import AjoutFiliere from "./Components/admin/AjoutFiliere";
+import AjoutClub from "./Components/admin/AjoutClub";
 import EditClubs from "./Components/admin/EditClub";
 function App() {
   return (
@@ -60,11 +61,14 @@ function App() {
             <Navbar />
             <AjoutFiliere /></>
         }/>
-
+      <Route exact path='/AjoutClub' element={<>
+            <Navbar />
+            <AjoutClub/></>
+        }/>
         <Route exact path='/SupprimerClub' element={<>
             <Navbar />
             <EditClubs/></>
-        }/> 
+        }/>
         </Routes>    
   </Router>
  
