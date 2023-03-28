@@ -4,11 +4,13 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { faUser,faHome } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link,useLocation } from 'react-router-dom';
+import { useNavigate} from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
 library.add(faUser,faHome);
 const Reponse = () => {
+  const navigate=useNavigate();
   const username=localStorage.getItem('username');
   const [error,setError]=useState('');
   const location = useLocation();
@@ -49,7 +51,7 @@ const Reponse = () => {
       setReponses(result.data.data);
     });}
     getReponses();
-    
+    checkAdmin();
   }
   ,[Reponses]);
 
@@ -75,17 +77,33 @@ const Reponse = () => {
         setError('An error occurred');
       }}
     }
+    /************************************************************* */
     
+    const [adminDeleteReponse,setadminDeleteReponse]=useState(false);
+    const checkAdmin=()=>{
+     if(localStorage.getItem('role')==='admin'){
+       setadminDeleteReponse(true);
+     }
+     else{
+       setadminDeleteReponse(false);
+     }
+   }
+   /************************************************************ */
+   const DeleteReponse=async (id)=>{
+   await axios.post("http://localhost:8080/pfe/src/Components/PHP/PhpAdmin/DeleteReponse.php",{
+    id,
+    }).then(()=>{
+     console.log("reponse Deleted");
+     navigate('/SearchClicked');
+    });
+   }
   
-    
-
-
-
+  
   /******************************************** */
  return ( 
   <div className="reponse-container">
      <div className="back-toQuestion"><Link to='/SearchClicked'><FontAwesomeIcon icon="home"/></Link></div>
-                          <div className="QuestionCard" key={dataQuestion.id} >
+              <div className="QuestionCard" key={dataQuestion.id} >
                 <div className='left-side-question'>
                     <div className="logo-user"><FontAwesomeIcon icon="user" className="user-icon"/></div>
                     {/* <div className="likes-number">11</div> */}
@@ -130,6 +148,10 @@ const Reponse = () => {
             <>
             {Reponses.map((Reponse) => (
             <div className="ResponseCard" key={Reponse.id} >
+                {adminDeleteReponse ? ( 
+                  <div className="Delete-reponse"><button onClick={()=>DeleteReponse(Reponse.id)}>Supprimer</button></div>
+                  )
+                  :(<></>)}
                                   <div className='left-side-Response'>
                                     <div className="logo-user"><FontAwesomeIcon icon="user" className="user-icon"/></div>
                                     <div className="likes"></div>

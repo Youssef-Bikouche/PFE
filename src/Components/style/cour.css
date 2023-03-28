@@ -14,6 +14,7 @@
    background-attachment: fixed;
    background-repeat: no-repeat;
    background-size: cover;
+ 
  }
  .close-cour{
    position: absolute;
@@ -29,12 +30,9 @@
  }
  .pdf-card{
    height: 450px;
-   width: 600px;
+   width: 500px;
    box-shadow: -4px 0px 15px #ffffff;
-   z-index: 99;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
+   z-index: 99; 
    margin-bottom: 60px;
    border-radius: 10px;
  }
@@ -73,7 +71,8 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  
+  display: grid;
+  grid-template-columns: 500px 500px;
  }
  .courTitle{
    font-size:40px;

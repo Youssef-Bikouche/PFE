@@ -1,5 +1,8 @@
 import "./style/Home.css";
-import why1 from "./images/why1.png";
+import clubmark from "./images/clubmark.png";
+import filieremark from "./images/filieremark.png";
+import questionmark from "./images/questionmark.png";
+import reviewmark from "./images/reviewmark.png";
 import question from "./images/question.png";
 import filiere from "./images/filiere.png";
 import club from "./images/clubHome.png";
@@ -18,34 +21,34 @@ const Home = () => {
     <div className="why-container">
       <div className="why-card">
         <div className="why-img">
-        <img src={why1} />  
+        <img src={filieremark} />  
         </div>
         <div className="why-info">
-          <span>gestion</span>
+          <span>filieres</span>
         </div>
       </div>
       <div className="why-card">
         <div className="why-img">
-        <img src={why1} />  
+        <img src={questionmark} />  
         </div>
         <div className="why-info">
-          <span>gestion</span>
+          <span>Espace interactif</span>
         </div>
       </div>
       <div className="why-card">
         <div className="why-img">
-        <img src={why1}/>  
+        <img src={clubmark}/>  
         </div>
         <div className="why-info">
-          <span>gestion</span>
+          <span>clubs</span>
         </div>
       </div>
       <div className="why-card">
         <div className="why-img">
-        <img src={why1}/>  
+        <img src={reviewmark}/>  
         </div>
         <div className="why-info">
-          <span>gestion</span>
+          <span>Temoignages</span>
         </div>
       </div>
 

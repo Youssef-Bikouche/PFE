@@ -4,7 +4,7 @@ import axios from "axios";
 const EditClubs = () => {
   const [ListClubs,setListClubs]=useState("");
   const [idClub,setidClub]=useState("");
-  const getClubs= async event => {
+  const getClubs= async () => {
     await axios.post('http://localhost:8080/pfe/src/Components/PHP/PhpAdmin/getClubs.php').then((result)=>{
     setListClubs(result.data.data);
   });}

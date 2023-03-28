@@ -64,8 +64,7 @@ setfiliereNomCour(filiereNom);
 // getCourses();
 
 }
-
-const pathCour="/Cours/";
+const pathCour="\\Cours\\";
 const [cours,setCours]=useState();
 const [filiereID,setfilereID]=useState();
 useEffect(()=>{
@@ -146,6 +145,7 @@ const closeCour=()=>{
     }).then((result)=>{
     if (result.data.data.status=='ok') {
       clickcloseQuestion();
+      getQuestions();
     } 
     });
   } catch (error) {
@@ -163,6 +163,7 @@ const closeCour=()=>{
                       <div className="filiere-option">
                                   <div className="courses" onClick={()=>{ handleCour(filiere.id,filiere.nom)}}>cours <span>►</span></div>
                                   <div className="Q&A" onClick={()=>{ setsearchFiliere(filiere.nom)}}>questions <span>►</span></div>
+                                  
                       </div>
            </div> 
         ))}
@@ -249,10 +250,10 @@ const closeCour=()=>{
 
    <div className="pdf-container"> 
         {cours.map((cour)=>(
-             <div className="pdf-card">   
-                  <iframe src="/Cours/1.pdf"
+             <div className="pdf-card"> 
+                  <iframe src={pathCour+cour.path}
                           title={cour.NomCour}
-                          width="600" 
+                          width="500" 
                           height="300">
                   </iframe>   
                   <div className="cour-info">

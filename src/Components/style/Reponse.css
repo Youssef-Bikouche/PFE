@@ -35,6 +35,7 @@
  margin-bottom: 40px;
  border: 1px solid black;
  border-radius: 20px;
+ position: relative;
 }
 .left-side-Response{
  width: 10%;
@@ -188,4 +189,22 @@ min-height: 20%;
   background-color: rgba(0, 0, 0, 0.5);
   }
   
-  
+  .Delete-reponse{
+    position: absolute;
+    bottom: 10px;
+    left: 45%;
+  }
+  .Delete-reponse button{
+    background-color: rgb(255, 137, 137);
+    cursor: pointer;
+    font-size: medium;
+    padding: 6px 6px;
+    width: 150px;
+  }
+  .Delete-reponse button:hover{
+    background-color: rgb(255, 0, 0);
+    cursor: pointer;
+    font-size: medium;
+    padding: 6px 6px;
+    width: 150px;
+  }

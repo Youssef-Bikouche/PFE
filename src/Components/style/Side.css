@@ -45,7 +45,6 @@
 }
 .filiere-container:hover .filiere-option{
   display: block;
-  /* margin-bottom: 30px; */
 }
 .filiere-option{
   position: absolute;

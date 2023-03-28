@@ -1,0 +1,66 @@
+.UploadCour-container{
+ height: 800px;
+ width: 100%;
+ padding: 10px;
+ background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),url(/src/Components/images/useresBackground.png);
+ background-position: center;
+ background-attachment: fixed;
+ background-repeat: no-repeat;
+ background-size: cover;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+.postCour{
+ position:absolute;
+ height: auto;
+ width: 80%;
+ display: flex;
+ flex-direction: column;
+ padding: 20px;
+ background-color: rgba(0, 0, 0, 0.189);
+ border-radius: 10px;
+}
+.postCour div{
+ width: 100%;
+ display: flex;
+ justify-content: space-between;
+ margin: 10px;
+ align-items: center;
+}
+.postCour div input{
+ height: 40px;
+ width: 60%;
+ padding: 10px;
+font-size: large;
+}
+.postCour label{
+ color: white;
+ font-size: x-large;
+ font-weight: 600;
+ width: 30%;
+ height: 30px;
+ text-align: center;
+}
+.btn-post-cour button{
+ width: 40%;
+ height: 30px;
+ background-color: coral;
+ border: none;
+ border-radius: 10px;
+margin: 10px auto;
+cursor: pointer;
+}
+.Cour-filiere select{
+ height: 40px;
+ width: 40%;
+ padding: 10px;
+font-size: medium;
+text-align: center;
+border-radius: 5px;
+}
+.Cour-filiere option{
+ margin: 5px;
+ color: coral;
+ background-color: black;
+}

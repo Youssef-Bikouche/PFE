@@ -32,12 +32,7 @@ $M15=$data->M15;
 $M16=$data->M16;
 /********************* */
 
-if(isset($_FILES['imageToUpload'])){
- move_uploaded_file($_FILES['imageToUpload']['tmp_name'], "images/". $_FILES['imageToUpload']['name']);
-}
-else{
-   echo "image not found!";
-}
+if(isset($NomFiliere)){
 try{ 
  $db = new PDO('mysql:host=localhost;dbname=pfe', 'root', '');
  $req = $db->prepare('insert into filiere (nom,Presentation,Objectifs,Modalites,Poursuite,Responsable,email,Diplome) values ("'.$NomFiliere.'","'.$Presentation.'","'.$Objectifs.'","'.$Modalite.'","'.$Poursuite.'","'.$ResponsableNom.'","'.$ResponsableEmail.'","'.$diplome.'");');
@@ -55,6 +50,6 @@ try{
    echo json_encode($response);
 }
 
-
+}
 
 ?>

@@ -11,6 +11,7 @@ library.add(faUser);
 library.add(faHeart);
 
 const QuestionCard = ({props}) => {
+   
 const [nbrReponse,setnbrReponse]=useState('0');
 const [color, setColor] = useState(false);
 function handleLikeColor() {
@@ -49,7 +50,7 @@ const id=props.id;
    id,
    }).then(()=>{
     console.log("Question Deleted");
-   //  props.getQuestions();
+    navigate('/SearchClicked');
    });
   }
  return (

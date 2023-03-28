@@ -26,7 +26,11 @@ const Loginn = () => {
   useEffect(()=>{
             checkLogin();
       },[]);
+  
 
+
+
+  // const [role,setRole]=useState('')
   const handleSubmit = async event => {
      event.preventDefault();
     try {
@@ -41,6 +45,7 @@ const Loginn = () => {
         localStorage.setItem('id',result.data.data.id);
         localStorage.setItem('role',result.data.data.role);
         console.log(localStorage.getItem('role'));
+        // setRole(result.data.data.role); 
         navigate("/Home");
       } else {
         setError(result.data.data.status);

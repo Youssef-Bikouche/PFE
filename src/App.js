@@ -16,6 +16,8 @@ import Users from "./Components/admin/Users";
 import AjoutFiliere from "./Components/admin/AjoutFiliere";
 import AjoutClub from "./Components/admin/AjoutClub";
 import EditClubs from "./Components/admin/EditClub";
+import Uploadcourse from "./Components/professeur/Uploadcourse";
+import DeleteFiliere from "./Components/admin/DeleteFiliere";
 function App() {
   return (
   <Router>
@@ -68,6 +70,14 @@ function App() {
         <Route exact path='/SupprimerClub' element={<>
             <Navbar />
             <EditClubs/></>
+        }/>
+          <Route exact path='/Uploadcourse' element={<>
+            <Navbar />
+            <Uploadcourse/></>
+        }/>
+          <Route exact path='/DeleteFiliere' element={<>
+            <Navbar />
+            <DeleteFiliere/></>
         }/>
         </Routes>    
   </Router>

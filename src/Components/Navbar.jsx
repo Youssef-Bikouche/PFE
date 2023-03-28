@@ -141,8 +141,9 @@ const [username,setUsername]=useState('')
                           <Link to='/Users' className="Btn-logOut"><button>Gestion utilisateurs</button></Link>
                           <Link to='/AjoutFiliere' className="Btn-logOut"><button>Ajouter filière</button></Link>
                           <Link to='/AjoutClub' className="Btn-logOut"><button>Ajouter Club</button></Link>
-                          <Link to='' className="Btn-logOut"><button>Supprimer filiere </button></Link>
+                          <Link to='/DeleteFiliere' className="Btn-logOut"><button>Supprimer filiere </button></Link>
                           <Link to='/Reviews' className="Btn-logOut"><button>Supprimer Reviews </button></Link>
+                          <Link to='/SearchClicked' className="Btn-logOut"><button>Supprimer Question</button></Link>
                           <Link to='/SupprimerClub' className="Btn-logOut"><button>Supprimer Club</button></Link>
                           </div>
                           
@@ -155,7 +156,7 @@ const [username,setUsername]=useState('')
 
                      }
                      {profLogedIn?(
-                          <Link to='' className="Btn-logOut"><button>Upload Courses</button></Link>
+                          <Link to='/Uploadcourse' className="Btn-logOut"><button>Upload Courses</button></Link>
                      ):(
                         <div>
 
