@@ -1,0 +1,111 @@
+.Evenement-container{
+ position: relative;
+ top: 0;
+ width: 100%;
+ min-height: 100vh;
+ /* border: 6px solid green; */
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ padding: 10px;
+ background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),url(/src/Components/images/x.jpg);
+ background-position: center;
+ background-attachment: fixed;
+ background-repeat: no-repeat;
+ background-size: cover;
+
+}
+.Evenement-cards-container{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  min-height: 90vh;
+  /* border: 3px solid red; */
+  padding: 20px 0;
+}
+.event-card-last{
+  display: flex;
+  justify-content:flex-start;
+  align-items: center;
+  width: 100%;
+}
+/*******/
+
+.join-tournament-container{
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.628);
+  backdrop-filter: blur(3px);
+  }
+  .join-tournament{
+   position: relative;
+   height: auto;
+   width: 30%;
+   margin: 10% auto;
+   background-color: rgba(0, 0, 0, 0.628);
+   border: 1px solid black;
+   border: 12px;
+   text-align: center;
+   padding: 20px;
+   color: white;
+   font-size: x-large;
+   border-radius: 16px;
+  }
+  .join-tournament input{
+   margin-bottom: 20px;
+  }
+  .join-tournament option{
+    font-size: large;
+   }
+  .close-pop{
+    position: absolute;
+    cursor: pointer;
+    right: 6px;
+    top: 2px;
+    color: red;
+  }
+  .join-tournament button{
+    width: 50%;
+    border-radius: 12px;
+    border: none;
+    font-size: large;
+    height: 30px;
+    background-color: lightsalmon;
+    color: white;
+    transition: box-shadow 0.5s;
+    padding: 5px 0 10px 0;
+    margin: 10px 0;
+  }
+  .join-tournament button:hover{
+    box-shadow: inset 600px 0px 5px #FF6A3D;
+  }
+  .join-tournament select{
+    height: 30px;
+    font-size: large;
+  }
+  .Participation-Result{
+    height: 40px;
+    font-size: large;
+    color: red;
+    text-align: center;
+  }
+  .supp-tourney{
+    width: 8%;
+    height: 40px;
+    background-color: rgb(254, 100, 100);
+    color: white;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    border-radius: 12px;
+    text-align: center;
+    border: none;
+    font-size: large;
+    cursor: pointer;
+  }
+  .supp-tourney:hover{
+    background-color: red;
+  }

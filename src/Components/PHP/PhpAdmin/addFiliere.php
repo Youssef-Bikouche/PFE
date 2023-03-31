@@ -13,6 +13,7 @@ $Poursuite=$data->Poursuite;
 $ResponsableNom=$data->ResponsableNom;
 $ResponsableEmail=$data->ResponsableEmail;
 $diplome=$data->DiplomeType;
+$imgPath=$data->imgPath;
 /******************** */
 $M1=$data->M1;
 $M2=$data->M2;
@@ -35,7 +36,7 @@ $M16=$data->M16;
 if(isset($NomFiliere)){
 try{ 
  $db = new PDO('mysql:host=localhost;dbname=pfe', 'root', '');
- $req = $db->prepare('insert into filiere (nom,Presentation,Objectifs,Modalites,Poursuite,Responsable,email,Diplome) values ("'.$NomFiliere.'","'.$Presentation.'","'.$Objectifs.'","'.$Modalite.'","'.$Poursuite.'","'.$ResponsableNom.'","'.$ResponsableEmail.'","'.$diplome.'");');
+ $req = $db->prepare('insert into filiere (nom,Presentation,Objectifs,Modalites,Poursuite,Responsable,email,Diplome,pathImg) values ("'.$NomFiliere.'","'.$Presentation.'","'.$Objectifs.'","'.$Modalite.'","'.$Poursuite.'","'.$ResponsableNom.'","'.$ResponsableEmail.'","'.$diplome.'","'.$imgPath.'");');
  $req->execute();
  $req2 = $db->prepare('select id from filiere where nom="'.$NomFiliere.'" and Diplome="'.$diplome.'"');
  $req2->execute();

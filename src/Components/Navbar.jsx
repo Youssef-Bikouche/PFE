@@ -95,7 +95,7 @@ const [username,setUsername]=useState('')
       <div className="links">
         <ul>
           <li><Link to='/Home'>Home</Link></li>
-           <li className='filiere-link'>filieres<span style={{marginLeft: "5px",fontSize: "small"}}>▼</span>
+          <li className='filiere-link'>filieres<span style={{marginLeft: "5px",fontSize: "small"}}>▼</span>
           <div className="filieres">
            <div className="DUT">
                <div >DIPLÔME UNIVERSITAIRE DE TECHNOLOGIE (DUT)</div>
@@ -121,7 +121,13 @@ const [username,setUsername]=useState('')
           </div>
           </li>
           {/* <li><Link to='/Filiere'>Filieres</Link></li> */}
-          <li><Link to='/Clubs'>Clubs</Link></li>
+          {/* <li><Link to='/Clubs'>Clubs</Link></li> */}
+          <li className="Para">Vie Universitaire
+               <div className="Para-options">
+                   <div><li><Link to='/Clubs'>Clubs</Link></li></div>
+                   <div><li><Link to='/Evenement'>Tournoi</Link></li></div>
+               </div>
+           </li>
            <li><Link to='/Reviews'>Témoignages</Link></li>
           <li><Link to='/SearchClicked'><FontAwesomeIcon icon="search" className="search"/></Link></li>
         </ul>
@@ -141,6 +147,7 @@ const [username,setUsername]=useState('')
                           <Link to='/Users' className="Btn-logOut"><button>Gestion utilisateurs</button></Link>
                           <Link to='/AjoutFiliere' className="Btn-logOut"><button>Ajouter filière</button></Link>
                           <Link to='/AjoutClub' className="Btn-logOut"><button>Ajouter Club</button></Link>
+                          <Link to='/AjouterTournoi' className="Btn-logOut"><button>Ajouter tournoi</button></Link>
                           <Link to='/DeleteFiliere' className="Btn-logOut"><button>Supprimer filiere </button></Link>
                           <Link to='/Reviews' className="Btn-logOut"><button>Supprimer Reviews </button></Link>
                           <Link to='/SearchClicked' className="Btn-logOut"><button>Supprimer Question</button></Link>

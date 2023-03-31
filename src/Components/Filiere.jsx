@@ -12,7 +12,8 @@ const Filiere = () => {
   const [Modules,setModules]=useState('');
   const FiliereId = location.state.id;
   const FiliereDiplome = location.state.diplome;
-  const imgg="/filiere/"+FiliereId+".png";
+  // const imgg="/filiere/"+FiliereId+".png";
+  const pathImg="/filiere/";
   useEffect(()=>{
     const getFiliereinfo= async event => {
       await axios.post('http://localhost:8080/pfe/src/Components/PHP/getFiliereinfo.php',{
@@ -45,7 +46,7 @@ const Filiere = () => {
   return ( 
     <div className="Filiere">
       <div className="filiere-pic">
-        <div className="pic"><img src={imgg} alt="" /></div>
+        <div className="pic"><img src={pathImg+filiere.pathImg} alt="" /></div>
         
           {
             typeDiplome?(

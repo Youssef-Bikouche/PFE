@@ -1,6 +1,7 @@
 import "../style/StyleAdmin/AjoutFiliere.css"
 import axios from "axios";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 const AjoutFiliere = () => {
 const [diplomeDUT,setDiplomeDUT]=useState();
 const checkDiplomeType=(event)=>{
@@ -13,7 +14,20 @@ else{
 }
 }
 /************************** */
-const [error,seterror]=useState("");
+const navigate=useNavigate('');
+const [error,setError]=useState("");
+const [image, setImage] = useState(null);
+const addimg= async () => {
+ const formData = new FormData();
+ formData.append('image',image);
+ await axios.post('http://localhost:8080/pfe/src/Components/PHP/PhpAdmin/saveFiliereImg.php',formData).then((result)=>{
+    console.log(result);
+ })
+ .catch(error => {
+    setError('error');
+  });
+
+} 
 
 /*********** */
 const [NomFiliere,setNomFiliere]=useState("");
@@ -43,7 +57,10 @@ const [M15,setM15]=useState(" ");
 const [M16,setM16]=useState(" ");
 /********* */
 const addFiliere= async event => {
+  if(image.size < 40000000){
   if(NomFiliere.length>0){
+    addimg();
+    const imgPath=image.name;
     await axios.post('http://localhost:8080/pfe/src/Components/PHP/PhpAdmin/addFiliere.php',{
       NomFiliere,
       DiplomeType,
@@ -54,9 +71,12 @@ const addFiliere= async event => {
       ResponsableNom,
       ResponsableEmail,
       M1,M2,M3,M4,M5,M6,M7,M8,M9,M10,M11,M12,M13,M14,M15,M16,
+      imgPath,
       }).then((result)=>{
-      // console.log(result.data);
+        navigate('/Home');
     });
+  }}else{
+    setError('image is to large');
   }
  }
 
@@ -105,7 +125,7 @@ const addFiliere= async event => {
             </div>
             <div className="filiere-background">
               <label htmlFor="">background image :</label>
-              <input type="file" accept="image/*" />
+              <input type="file" accept="image/*" onChange={(event)=>{setImage(event.target.files[0])}}/>
             </div>
             {diplomeDUT?(
              <>
@@ -172,6 +192,7 @@ const addFiliere= async event => {
 
             }
              <div className="btn-post-filiere"> <button onClick={()=>{addFiliere()}}>Pose</button></div>
+            <div>{error}</div>
      </div>
 </div>
   );
