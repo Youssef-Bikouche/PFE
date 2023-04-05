@@ -12,7 +12,8 @@ $password=$data->password;
 $nom=$data->nom;
 $prenom=$data->prenom;
 $email=$data->email;
-try{ $db = new PDO('mysql:host=localhost;dbname=pfe', 'root', '');
+try{ 
+  $db = new PDO('mysql:host=localhost;dbname=pfe', 'root', '');
   $VerfieUser='select username from users where username=:username';
   $req = $db->prepare($VerfieUser);
   $req ->bindValue(":username",$username);
