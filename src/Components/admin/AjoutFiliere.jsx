@@ -21,7 +21,7 @@ const addimg= async () => {
  const formData = new FormData();
  formData.append('image',image);
  await axios.post('http://localhost:8080/pfe/src/Components/PHP/PhpAdmin/saveFiliereImg.php',formData).then((result)=>{
-    console.log(result);
+
  })
  .catch(error => {
     setError('error');

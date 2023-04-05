@@ -1,14 +1,12 @@
 import React from "react";
 import QuestionCard from "./questionCard";
-import FiliereCard from "./Filierecard";
 import "./style/SearchClicked.css";
 import "./style/Side.css";
 import "./style/cour.css";
 import waiting from "./images/waiting.gif";
-import { Document, Page } from 'react-pdf/dist/esm/entry.webpack';
 import { faSearch,faClose } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Link, useNavigate } from "react-router-dom";
+import { Link} from "react-router-dom";
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faUser,faLock} from '@fortawesome/free-solid-svg-icons';
 import { useState } from "react";
@@ -17,7 +15,6 @@ import axios from "axios";
 library.add(faSearch);
 library.add(faClose);
 library.add(faUser,faLock);
-
 
 const SearchClicked = ({props}) => {
   const [error, setError] = useState('');
@@ -54,37 +51,36 @@ const SearchClicked = ({props}) => {
   setpopQuestion(false);
   }
 /******************************************** */
+const [Typecour,setTypecour]=useState('cours');
+
 const [popCour,setPopcour]=useState(false);
 const [filiereNomCour,setfiliereNomCour]=useState();
 const handleCour=(id,filiereNom)=>{
 setfilereID(id);
 setPopcour(true);
 setfiliereNomCour(filiereNom);
-
-// getCourses();
-
 }
-const pathCour="\\Cours\\";
+const pathCour="/Cours/";
 const [cours,setCours]=useState();
 const [filiereID,setfilereID]=useState();
 useEffect(()=>{
-
  const getCourses= async event => {
     await axios.post('http://localhost:8080/pfe/src/Components/PHP/Courses.php',{
       filiereID,
+      Typecour,
     }).then((result)=>{
     setCours(result.data.data);
   });}
   getCourses();
 }
-,[filiereID]);
+,[filiereID,Typecour]);
 
 
 
 const closeCour=()=>{
   setPopcour(false);
 }
-/*************************** */
+
 
   /***************************** fetching questions functions *********************************** */
   const [filieres,setfilieres]=useState('');
@@ -101,18 +97,9 @@ const closeCour=()=>{
     });}
     getFiliere();
     getQuestions();
-    // const handleScroll = () => {
-    //   if (window.scrollY > 100) {
-    //     setScrolled(true);
-    //   } else {
-    //     setScrolled(false);
-    //   }
-    // }
-    // content.addEventListener('scroll', handleScroll);
   }
   ,[]);
-  // const [scrolled,setScrolled]=useState(false);
-  // const navbarClassName = `Navbar ${scrolled ? 'Navbar-scrolled' : ''}`;
+ 
   /******************************************* *************************************************/
     const [Questions,setquestions]=useState('');
     const [searchTerm,setsearchTerm]= useState('');
@@ -150,7 +137,6 @@ const closeCour=()=>{
     });
   } catch (error) {
     setError('An error occurred');}}
-  /***************************************************************** */
 
  /******************************************* returned components ***********************************************************/ 
  return (
@@ -243,6 +229,10 @@ const closeCour=()=>{
    {cours?.length > 0 ?(
      <div className="cours">
       <div className="courTitle">{filiereNomCour}</div>
+      <select name="" id="" onChange={(event)=>{setTypecour(event.target.value)}}>
+        <option value="cours">cours</option>
+        <option value="TD">TD</option>
+      </select>
       <div className="close-cour" onClick={()=>{closeCour()}}>
                       <FontAwesomeIcon icon="close"/>
       </div>
@@ -287,6 +277,10 @@ const closeCour=()=>{
             <div className="close-cour" onClick={()=>{closeCour()}}>
                             <FontAwesomeIcon icon="close"/>
             </div>
+            <select name="" id="" onChange={(event)=>{setTypecour(event.target.value)}}>
+        <option value="cours">cours</option>
+        <option value="TD">TD</option>
+      </select>
            <span className='cours-NotAvaible'> No cours avaible </span>
         </div>
         
@@ -296,7 +290,8 @@ const closeCour=()=>{
   </>
 ):(
   <>
-</>
+  
+  </>
 )
 } 
   </div>

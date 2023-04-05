@@ -33,7 +33,6 @@ const DeleteFiliere = () => {
  const handleDeleteFil=(id)=>{
   setFiliereId(id);
   setpopDeleteFiliere(true)
-  console.log("ready")
   }
   return (  
     <div className="ListFilieres-container">

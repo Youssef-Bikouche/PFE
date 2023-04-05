@@ -13,7 +13,12 @@ $imgPath=$data->imgPath;
 try{ 
  $db = new PDO('mysql:host=localhost;dbname=pfe', 'root', '');
  if(isset($NomClub)){
- $req = $db->prepare('insert into clubs (titleClub,infoClub,domaine,email,imgClub) values ("'.$NomClub.'","'.$infoClub.'","'.$DomaineClub.'","'.$ClubEmail.'","'.$imgPath.'");');
+ $req = $db->prepare('insert into clubs (titleClub,infoClub,domaine,email,imgClub) values (:titleClub,:infoClub,:domaine,:email,:imgClub);');
+ $req->bindValue(":titleClub",$NomClub);
+ $req->bindValue(":infoClub",$infoClub);
+ $req->bindValue(":domaine",$DomaineClub);
+ $req->bindValue(":email",$ClubEmail);
+ $req->bindValue(":imgClub",$imgPath);
  $req->execute();
  $response['data']=array('status'=>'ok');
    echo json_encode($response);

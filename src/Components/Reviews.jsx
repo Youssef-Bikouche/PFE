@@ -6,7 +6,7 @@ import StarRatings from 'react-star-ratings';
 import axios from "axios";
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import CryptoJS from "crypto-js";
 library.add(faUser);
 const Reviews = () => {
 /************************************************ */
@@ -32,10 +32,6 @@ const Reviews = () => {
 /************************************************ */
     const SubmitReview = async event => {
       getReviews();
-      console.log(user)
-      console.log(id)
-      console.log(rating)
-      console.log(comment)
       try {
         await axios.post('http://localhost:8080/pfe/src/Components/PHP/PostReview.php', {
           user,
@@ -43,10 +39,7 @@ const Reviews = () => {
           comment,
           rating,
         }).then((result)=>{
-          // console.log("heraaaaaae")
-          // console.log(result.data.data);
           setpostedMessage('your review has been approuved !');
-          
         });
       }catch(error){
         setError('An error occurred');
@@ -68,14 +61,17 @@ const Reviews = () => {
   /******************************************************* */
    const [adminDeleteReview,setadminDeleteReview]=useState(false);
    const checkAdmin=()=>{
-    if(localStorage.getItem('role')==='admin'){
+    const CryptingKey = "xxx";
+      const encryptedData = localStorage.getItem('Crypted');
+   if(encryptedData){
+      const decryptedData = CryptoJS.AES.decrypt(encryptedData,CryptingKey).toString(CryptoJS.enc.Utf8);
+    if(decryptedData==='admin'){
       setadminDeleteReview(true);
     }
     else{
       setadminDeleteReview(false);
     }
-    console.log(adminDeleteReview);
-  }
+  }}
    const DeleteReview=async (id)=>{
     await axios.post('http://localhost:8080/pfe/src/Components/PHP/PhpAdmin/DeleteReview.php',{
       id,

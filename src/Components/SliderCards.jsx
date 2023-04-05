@@ -1,7 +1,4 @@
 import "./style/SliderCards.css";
-// import { Link } from "react-router-dom";
-
-
 const SLiderCard = ({props}) => {
   const imgg="/Clubs/"+props.imgClub;
   const id="#"+props.id;

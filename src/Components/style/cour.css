@@ -16,6 +16,14 @@
    background-size: cover;
  
  }
+ .cours select{
+width: 200px;
+height: 60px;
+border-radius: 10px;
+text-align: center;
+font-size: large;
+
+ }
  .close-cour{
    position: absolute;
    top: 10px;

@@ -9,9 +9,7 @@ const Clubs = () => {
   useEffect(()=>{
     const getClubs= async event => {
       const response = await axios.post('http://localhost:8080/pfe/src/Components/PHP/getClubs.php').then((result)=>{
-      console.log(result.data.data);
       setClubs(result.data.data);
-      // console.log(Clubs);
     });}
     getClubs();
   }

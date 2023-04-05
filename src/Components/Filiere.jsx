@@ -1,18 +1,15 @@
 import "./style/Filiere.css";
-// import pic1 from "./images/filiere/1.png";
 import target from "./images/target.png";
-import {useLocation } from 'react-router-dom';
+import {useLocation} from 'react-router-dom';
 import { useState,useEffect } from "react";
 import axios from "axios";
 const Filiere = () => {
   const location = useLocation();
-
   const [typeDiplome,settypeDiplome]=useState('');
   const [filiere,setFiliere]=useState('');
   const [Modules,setModules]=useState('');
   const FiliereId = location.state.id;
   const FiliereDiplome = location.state.diplome;
-  // const imgg="/filiere/"+FiliereId+".png";
   const pathImg="/filiere/";
   useEffect(()=>{
     const getFiliereinfo= async event => {
@@ -20,7 +17,6 @@ const Filiere = () => {
         FiliereId,
       }).then((result)=>{
      setFiliere(result.data.data[0]);
-   
     });}
     const getModules= async event => {
       await axios.post('http://localhost:8080/pfe/src/Components/PHP/getModules.php',{

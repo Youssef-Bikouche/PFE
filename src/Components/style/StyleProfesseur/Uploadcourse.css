@@ -51,7 +51,7 @@ font-size: large;
 margin: 10px auto;
 cursor: pointer;
 }
-.Cour-filiere select{
+.Cour-filiere select,.addType select{
  height: 40px;
  width: 40%;
  padding: 10px;
@@ -59,8 +59,9 @@ font-size: medium;
 text-align: center;
 border-radius: 5px;
 }
-.Cour-filiere option{
+.Cour-filiere option,.addType option{
  margin: 5px;
  color: coral;
  background-color: black;
+
 }

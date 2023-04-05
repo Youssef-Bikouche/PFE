@@ -8,6 +8,7 @@ import { useNavigate} from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";
 import axios from "axios";
+import CryptoJS from "crypto-js";
 library.add(faUser,faHome);
 const Reponse = () => {
   const navigate=useNavigate();
@@ -23,7 +24,6 @@ const Reponse = () => {
 
 /******************************** */
   const [popLogin, setpopLogin] = useState(false);
-  const [popQuestion, setpopQuestion] = useState(false);
   const checkLogin=()=>{
   if(localStorage.getItem('token')==='verified'){
       setpopLogin(false);
@@ -32,13 +32,7 @@ const Reponse = () => {
     setpopLogin(true);
   }
 }
-  const clickclose=()=>{
-  setpopLogin(false);
-  }
 
-  const clickcloseQuestion=()=>{
-  setpopQuestion(false);
-  }
 
   /******************************* */
   useEffect(()=>{
@@ -59,8 +53,6 @@ const Reponse = () => {
   const [reponse,setReponse]=useState('')
   const PostAnswer= async event => {
     const idQuestion=dataQuestion.id;
-    console.log(popLogin);
-      console.log("hana dkhelt ")
     if (username.length!=0 && idQuestion.length!=0 && reponse.length!=0) {
       try {
         await axios.post('http://localhost:8080/pfe/src/Components/PHP/PostReponse.php', {
@@ -68,7 +60,6 @@ const Reponse = () => {
           reponse,
           idQuestion,
         }).then((result)=>{
-          console.log(result);
         if (result.data.data.status=='ok') {
   
         } 
@@ -81,13 +72,17 @@ const Reponse = () => {
     
     const [adminDeleteReponse,setadminDeleteReponse]=useState(false);
     const checkAdmin=()=>{
-     if(localStorage.getItem('role')==='admin'){
+      const CryptingKey = "xxx";
+      const encryptedData = localStorage.getItem('Crypted');
+   if(encryptedData){
+      const decryptedData = CryptoJS.AES.decrypt(encryptedData,CryptingKey).toString(CryptoJS.enc.Utf8);
+     if(decryptedData==='admin'){
        setadminDeleteReponse(true);
      }
      else{
        setadminDeleteReponse(false);
      }
-   }
+   }}
    /************************************************************ */
    const DeleteReponse=async (id)=>{
    await axios.post("http://localhost:8080/pfe/src/Components/PHP/PhpAdmin/DeleteReponse.php",{
@@ -106,7 +101,6 @@ const Reponse = () => {
               <div className="QuestionCard" key={dataQuestion.id} >
                 <div className='left-side-question'>
                     <div className="logo-user"><FontAwesomeIcon icon="user" className="user-icon"/></div>
-                    {/* <div className="likes-number">11</div> */}
                 </div>
                 <div className='right-side-question'>
                     <div className="info-postage">

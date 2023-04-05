@@ -20,6 +20,7 @@ import Uploadcourse from "./Components/professeur/Uploadcourse";
 import DeleteFiliere from "./Components/admin/DeleteFiliere";
 import Evenement from "./Components/Evenment";
 import AjoutTournoi from "./Components/admin/AjoutTournoi";
+import SupprimerCourse from "./Components/professeur/SupprimerCourse";
 function App() {
   return (
   <Router>
@@ -89,6 +90,11 @@ function App() {
         <Route exact path='/AjouterTournoi' element={<>
             <Navbar />
             <AjoutTournoi /></>
+        }/>
+
+        <Route exact path='/SupprimerCourse' element={<>
+            <Navbar />
+            <SupprimerCourse /></>
         }/>
         </Routes>    
   </Router>

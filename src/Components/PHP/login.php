@@ -10,7 +10,9 @@ if($method=="POST"){
   $username=$data->username;
   $password=$data->password;
  try{ $db = new PDO('mysql:host=localhost;dbname=pfe', 'root', '');
-  $req = $db->prepare('select username,id,role from users where username="'.$username.'" and password="'.$password.'"');
+  $req = $db->prepare('select username,id,role from users where username=:username and password=:password');
+  $req ->bindValue(":username",$username);
+  $req ->bindValue(":password",$password);
   $req->execute();
   $res = $req->fetchAll();
 

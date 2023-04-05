@@ -11,7 +11,6 @@ const checkRequiredClub=(event)=>{
    if(NomTournoi.length>=1 && NbrPlace.length>=1 && Delais.length>=1 && infoTournoi.length>=1){
     addTournoi();
     setMessage("Added successfully");
-    
     }
      else{
       setMessage("il faut remplir tous les champs !");
@@ -24,9 +23,7 @@ const checkRequiredClub=(event)=>{
       infoTournoi,
       NbrPlace,
       Delais,
-      }).then((result)=>{
-      console.log(result.data);
-    });
+      });
 }
   return ( 
 <div className="AjoutClub">

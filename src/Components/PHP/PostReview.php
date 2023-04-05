@@ -14,7 +14,10 @@ $rating=$data->rating;
 $posted=date('Y-m-d h:m:i A').PHP_EOL;
 try{ 
  $db = new PDO('mysql:host=localhost;dbname=pfe', 'root', '');
- $req = $db->prepare('insert into reviews (id_user,user,comment,rating,posted) values("'.$id.'","'.$user.'","'.$comment.'","'.$rating.'","'.$posted.'")');
+ $req = $db->prepare('insert into reviews (id_user,user,comment,rating,posted) values("'.$id.'","'.$user.'",:comment,:rating,"'.$posted.'")');
+ $req ->bindValue(":comment",$comment);
+ $req ->bindValue(":rating",$rating);
+ 
  $req->execute();
  $res=$req->fetchAll();
  $response['data']=array('status'=>'ok');

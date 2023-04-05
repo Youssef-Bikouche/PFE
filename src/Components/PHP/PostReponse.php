@@ -11,7 +11,8 @@ $nom=$data->username;
 $posted=date('Y-m-d h:m:i A').PHP_EOL;
 try{ 
  $db = new PDO('mysql:host=localhost;dbname=pfe', 'root', '');
- $req = $db->prepare('insert into reponses (idQuestion,nom,reponse,likes,posted) values ("'.$idQuestion.'","'.$nom.'","'.$reponse.'","22","'.$posted.'");');
+ $req = $db->prepare('insert into reponses (idQuestion,nom,reponse,posted) values ("'.$idQuestion.'","'.$nom.'",:reponse,"'.$posted.'");');
+ $req ->bindValue(":reponse",$reponse);
  $req->execute();
  $response['data']=array('status'=>'ok');
    echo json_encode($response);

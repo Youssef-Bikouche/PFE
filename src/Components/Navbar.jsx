@@ -6,7 +6,7 @@ import { faSearch,faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
-
+import CryptoJS from "crypto-js";
 import axios from "axios";
 library.add(faSearch,faUser);
 const Navbar = () => {
@@ -35,8 +35,17 @@ const Navbar = () => {
   });}
   getFiliereDUT();
   getFiliereLP();
-checkRole();
-
+  checkRole();
+  checkLogin();//checks the login state on every render
+  setUsername(localStorage.getItem('username'));
+  const handleScroll = () => {
+    if (window.scrollY > 100) {
+      setScrolled(true);
+    } else {
+      setScrolled(false);
+    }
+  }
+  window.addEventListener('scroll', handleScroll);
 },[]);
 
 /********************************** */
@@ -47,25 +56,13 @@ const navigteToFiliere=(diplome,id)=>{
   /********************************** */
   const clearLocalStorage = () => {
     localStorage.removeItem('token');
-    localStorage.removeItem('role');
+    localStorage.removeItem('Crypted');
     localStorage.removeItem('username');//maybe comeback here if not working
     setislogin(false);//user is not connected , show login and register
     navigate('/Home'); 
     
   };
-  useEffect(()=>{
-      checkLogin();//chechks the login state on every render
-      setUsername(localStorage.getItem('username'));
-      const handleScroll = () => {
-        if (window.scrollY > 100) {
-          setScrolled(true);
-        } else {
-          setScrolled(false);
-        }
-      }
-      window.addEventListener('scroll', handleScroll);
 
-  },[]);
 
   const [scrolled,setScrolled]=useState(false);
   const navbarClassName = `Navbar ${scrolled ? 'Navbar-scrolled' : ''}`;
@@ -73,12 +70,17 @@ const navigteToFiliere=(diplome,id)=>{
 /********************************************/
 const [adminLogedIn,setAdminLogedIn]=useState(false);
 const [profLogedIn,setProfLogedIn]=useState(false);
+const [username,setUsername]=useState('')
 const checkRole=()=>{
-  if(localStorage.getItem('role')==='admin'){
+  const CryptingKey = "xxx";
+  const encryptedData = localStorage.getItem('Crypted');
+  if(encryptedData){
+  const decryptedData = CryptoJS.AES.decrypt(encryptedData,CryptingKey).toString(CryptoJS.enc.Utf8);
+  if(decryptedData==='admin'){
     setAdminLogedIn(true);
     setProfLogedIn(false);
  }
- else if(localStorage.getItem('role')==='professeur'){
+ else if(decryptedData==='professeur'){
   setProfLogedIn(true);
   setAdminLogedIn(false);
  }
@@ -86,9 +88,8 @@ const checkRole=()=>{
   setAdminLogedIn(false);
   setProfLogedIn(false);
  }
-}
+}}
 
-const [username,setUsername]=useState('')
   return ( 
     <div className={navbarClassName} data-aos="fade-up">
       <div className="logo"><img src={logo} alt="logo" /></div>
@@ -120,12 +121,10 @@ const [username,setUsername]=useState('')
             </div>
           </div>
           </li>
-          {/* <li><Link to='/Filiere'>Filieres</Link></li> */}
-          {/* <li><Link to='/Clubs'>Clubs</Link></li> */}
           <li className="Para">Vie Universitaire
                <div className="Para-options">
-                   <div><li><Link to='/Clubs'>Clubs</Link></li></div>
-                   <div><li><Link to='/Evenement'>Tournoi</Link></li></div>
+              <div><li> <Link to='/Clubs'>Clubs</Link></li></div>
+              <div><li> <Link to='/Evenement'> Tournoi</Link></li></div>
                </div>
            </li>
            <li><Link to='/Reviews'>Témoignages</Link></li>
@@ -152,6 +151,7 @@ const [username,setUsername]=useState('')
                           <Link to='/Reviews' className="Btn-logOut"><button>Supprimer Reviews </button></Link>
                           <Link to='/SearchClicked' className="Btn-logOut"><button>Supprimer Question</button></Link>
                           <Link to='/SupprimerClub' className="Btn-logOut"><button>Supprimer Club</button></Link>
+                          <Link to='/Evenement' className="Btn-logOut"><button>Supprimer Tournoi</button></Link>
                           </div>
                           
                           </Link>
@@ -162,8 +162,9 @@ const [username,setUsername]=useState('')
                      )
 
                      }
-                     {profLogedIn?(
+                     {profLogedIn?(<>
                           <Link to='/Uploadcourse' className="Btn-logOut"><button>Upload Courses</button></Link>
+                          <Link to='/SupprimerCourse' className="Btn-logOut"><button>Supprimer Courses</button></Link></>
                      ):(
                         <div>
 
@@ -171,7 +172,7 @@ const [username,setUsername]=useState('')
                      )
 
                      }
-                  <Link to='' className="Btn-logOut"> <button>Demande de document</button></Link>
+                  <Link to='mailto:este@uca.ma?subject=Demande de document' className="Btn-logOut"> <button>Demande de document</button></Link>
                   </div>
                   <div className="logOut">
                   <Link to='/login' className="Btn-logOut"> <button  onClick={()=>clearLocalStorage()}>Déconnexion</button></Link>

@@ -6,31 +6,30 @@ import axios from "axios";
 import { useEffect,useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faUser,faLock, faWeight} from '@fortawesome/free-solid-svg-icons';
+import { faUser,faLock} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Navigate } from "react-router-dom";
+import CryptoJS from "crypto-js";
 library.add(faUser,faLock);
-
 const Loginn = () => {
   const [error, setError] = useState('');
   const [username, setusername] = useState('');
   const [password, setpassword] = useState('');
   const [islogin, setislogin] = useState(false);
   const navigate=useNavigate();
-  
   const checkLogin=()=>{
           if(localStorage.getItem('token')==='verified'){
             setislogin(true);
         }
   }
+
   useEffect(()=>{
             checkLogin();
       },[]);
   
 
+  /********************************************************************* */
 
-
-  // const [role,setRole]=useState('')
   const handleSubmit = async event => {
      event.preventDefault();
     try {
@@ -38,15 +37,15 @@ const Loginn = () => {
         username,
         password,
       }).then((result)=>{
-       console.log(result.data);
       if (result.data.data.status=='valid') {
-        localStorage.setItem('token','verified');
-        localStorage.setItem('username',username);
-        localStorage.setItem('id',result.data.data.id);
-        localStorage.setItem('role',result.data.data.role);
-        console.log(localStorage.getItem('role'));
-        // setRole(result.data.data.role); 
-        navigate("/Home");
+            localStorage.setItem('token','verified');
+            localStorage.setItem('username',username);
+            localStorage.setItem('id',result.data.data.id);
+            const CryptingKey = "xxx";
+            const roleValue=result.data.data.role;
+            const encryptedValue = CryptoJS.AES.encrypt(roleValue,CryptingKey).toString();
+            localStorage.setItem("Crypted",encryptedValue);
+            navigate("/Home");
       } else {
         setError(result.data.data.status);
       }
@@ -58,7 +57,7 @@ const Loginn = () => {
    } 
   return ( 
     <>
-    { islogin?( <Navigate to="/Home" replace={true} />):(
+    { islogin?( <Navigate to="/Home" />):(
     <div className="Login-container">
       <video className='video-logo' autoPlay loop muted width= '500px' height= '500px' >
       <source src={videolast} type="video/mp4"/>

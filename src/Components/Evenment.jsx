@@ -1,10 +1,11 @@
-import { useEffect, useState } from "react";
 import "./style/Evenement.css";
 import x from "./images/x.jpg";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import CryptoJS from "crypto-js";
 const Evenement = () => {
-  const navigate= useNavigate('');
+  
   const [Tournaments,setTournaments]=useState('');
   const [IdTournoi,setIdTournoi]=useState('');
   const [filieres,setfilieres]=useState('');
@@ -31,17 +32,17 @@ const Evenement = () => {
   fil,
   IdTournoi,
   }).then((result)=>{
-   console.log(result.data.data);
    if(result.data.data.status==='ajouter'){
     setParticipationResult("vous etre maintenant participant dans cette tournoi !")
-
    }
    else if(result.data.data.status==='deja'){
     setParticipationResult("Vous avez deja participer dans cette tournoi !")
    }
-   else{
+   else if(result.data.data.status==="0place"){
     setParticipationResult("désolée , tous les places sont réservés ")
-    
+   }
+   else{
+    setParticipationResult("une erreur")
    }
   })
  const handleParticipeShow=(id)=>{
@@ -63,13 +64,17 @@ const Evenement = () => {
 
   const [adminDeleteTournoi,setadminDeleteTournoi]=useState(false);
   const checkAdmin=()=>{
-   if(localStorage.getItem('role')==='admin'){
+      const CryptingKey = "xxx";
+      const encryptedData = localStorage.getItem('Crypted');
+     if(encryptedData){
+        const decryptedData = CryptoJS.AES.decrypt(encryptedData,CryptingKey).toString(CryptoJS.enc.Utf8);
+   if(decryptedData==='admin'){
      setadminDeleteTournoi(true);
    }
    else{
      setadminDeleteTournoi(false);
    }
- }
+ }}
   return (
     <div className="Evenement-container">
         <h1 style={{margin: "100px 0px",fontStyle: "italic",color: "white"}}>Compéter , s'amuser , développer !</h1>

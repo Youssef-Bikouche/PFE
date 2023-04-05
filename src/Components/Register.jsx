@@ -49,17 +49,13 @@ const Loginn = () => {
         prenom,
         email,
       }).then((result)=>{
-        console.log(result.data.data.status);
       if (result.data.data.status=='valid') {
-        console.log('register successful');
        navigate("/Login");
       } else if(result.data.data.status=='already exist') {
         setError(result.data.data.status);
-        console.log(error);
       }
       else {
          setError(result.data.data.status);
-         console.log(error);
        }
       });
       

@@ -13,8 +13,9 @@ $nom=$data->nom;
 $prenom=$data->prenom;
 $email=$data->email;
 try{ $db = new PDO('mysql:host=localhost;dbname=pfe', 'root', '');
-  $VerfieUser='select username from users where username="'.$username.'"';
+  $VerfieUser='select username from users where username=:username';
   $req = $db->prepare($VerfieUser);
+  $req ->bindValue(":username",$username);
   $req->execute();
   $res = $req->fetchAll();
   if($res!=null){
@@ -22,7 +23,12 @@ try{ $db = new PDO('mysql:host=localhost;dbname=pfe', 'root', '');
    echo json_encode($response);
   }
   else{
- $req = $db->prepare('insert into users (nom,prenom,username,password,email) values("'.$nom.'","'.$prenom.'","'.$username.'","'.$password.'","'.$email.'");');
+ $req = $db->prepare('insert into users (nom,prenom,username,password,email,role) values(:nom,:prenom,:username,:password,:email,"etudiant");');
+ $req ->bindValue(":nom",$nom);
+ $req ->bindValue(":prenom",$prenom);
+ $req ->bindValue(":password",$password);
+ $req ->bindValue(":username",$username);
+ $req ->bindValue(":email",$email);
  $req->execute();
  $res = $req->fetchAll();
  $response['data']=array('status'=>'valid');

@@ -3,7 +3,6 @@ import "../style/StyleAdmin/EditClubs.css";
 import axios from "axios";
 const EditClubs = () => {
   const [ListClubs,setListClubs]=useState("");
-  const [idClub,setidClub]=useState("");
   const getClubs= async () => {
     await axios.post('http://localhost:8080/pfe/src/Components/PHP/PhpAdmin/getClubs.php').then((result)=>{
     setListClubs(result.data.data);
@@ -13,7 +12,6 @@ const EditClubs = () => {
       await axios.post('http://localhost:8080/pfe/src/Components/PHP/PhpAdmin/DeleteClub.php',{
         id,
       }).then((result)=>{
-        console.log("deleted club");
         getClubs();
 
     });}

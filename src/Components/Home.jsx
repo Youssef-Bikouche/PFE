@@ -55,25 +55,21 @@ const Home = () => {
     </div>
     </div>
 
-
-    
-
-  
     <div className="information">
       <div className="img-info">
           <img src={question}/> 
       </div>
       <div className="info">
-      <h1>filieres</h1>
-      <p>l'espace des filières est une fonctionnalité essentielle pour offrir une expérience d'apprentissage personnalisée aux apprenants et répondre à leurs besoins spécifiques de formation. Elle permet également aux établissements d'enseignement en ligne de proposer des parcours de formation cohérents et adaptés aux exigences du marché de l'emploi.</p>
+        <h1>filieres</h1>
+        <p>l'espace des filières est une fonctionnalité essentielle pour offrir une expérience d'apprentissage personnalisée aux apprenants et répondre à leurs besoins spécifiques de formation. Elle permet également aux établissements d'enseignement en ligne de proposer des parcours de formation cohérents et adaptés aux exigences du marché de l'emploi.</p>
       </div>
     </div>
 
     <div className="information">
       <div className="info">
-      <h1>Question</h1>
-      <p>L'espace de question permet aux apprenants de clarifier des concepts qui leur paraissent flous, de demander des explications supplémentaires sur des sujets abordés en cours ou encore de poser des questions pratiques sur l'organisation des activités pédagogiques. Les réponses apportées par les enseignants ou les autres apprenants peuvent aider à combler des lacunes dans la compréhension du cours et à renforcer les connaissances acquises.
-      L'espace de question peut également favoriser les interactions entre les apprenants en encourageant les échanges autour du contenu du cours. Cela peut conduire à des discussions fructueuses et à une meilleure compréhension du sujet étudié.</p>
+        <h1>Question</h1>
+        <p>L'espace de question permet aux apprenants de clarifier des concepts qui leur paraissent flous, de demander des explications supplémentaires sur des sujets abordés en cours ou encore de poser des questions pratiques sur l'organisation des activités pédagogiques. Les réponses apportées par les enseignants ou les autres apprenants peuvent aider à combler des lacunes dans la compréhension du cours et à renforcer les connaissances acquises.
+        L'espace de question peut également favoriser les interactions entre les apprenants en encourageant les échanges autour du contenu du cours. Cela peut conduire à des discussions fructueuses et à une meilleure compréhension du sujet étudié.</p>
       </div>
       <div className="img-info">
           <img src={filiere}/> 

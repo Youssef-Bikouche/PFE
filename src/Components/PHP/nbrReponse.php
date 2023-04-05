@@ -7,7 +7,8 @@ $data=json_decode(file_get_contents("php://input"));
 $id=$data->id;
 try{ 
  $db = new PDO('mysql:host=localhost;dbname=pfe', 'root', '');
- $req = $db->prepare('select COUNT(reponse) from reponses inner join questions on reponses.idQuestion = questions.id where reponses.idQuestion='.$id.';');
+ $req = $db->prepare('select COUNT(reponse) from reponses inner join questions on reponses.idQuestion = questions.id where reponses.idQuestion=:id;');
+ $req ->bindValue(":id",$id);
  $req->execute();
  $res = $req->fetchAll();
  $response['data']=$res;

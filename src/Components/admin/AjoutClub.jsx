@@ -9,7 +9,7 @@ const [DomaineClub,setDomaineClub]=useState("");
 const [ClubEmail,setClubEmail]=useState("");
 const [error,setError]=useState("");
 const navigate=useNavigate('');
-const checkRequiredClub=(event)=>{
+const checkRequiredClub=()=>{
    if(NomClub.length>=1 && DomaineClub.length>=1 && ClubEmail.length>=1 && infoClub.length>=1){
      addClub();
     }
@@ -22,9 +22,8 @@ const checkRequiredClub=(event)=>{
      const addimg= async () => {
       const formData = new FormData();
       formData.append('image',image);
-
       await axios.post('http://localhost:8080/pfe/src/Components/PHP/PhpAdmin/saveClubImg.php',formData).then((result)=>{
-         console.log(result);
+        
       })
       .catch(error => {
          setError('error');
@@ -33,7 +32,6 @@ const checkRequiredClub=(event)=>{
    } 
   /***************************** */
 const addClub= async ()=> {
-   console.log(image.size);
    if(image.size < 40000000){
      addimg();
      const imgPath=image.name;

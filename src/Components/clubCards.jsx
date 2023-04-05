@@ -2,8 +2,6 @@ import "./style/clubCards.css";
 
 const ClubCards = ({props}) => {
   const imgg="/Clubs/"+props.imgClub;
-  console.log(imgg);
-  console.log(props.email);
   const recipient = props.email;
   const subject = "Demande de joindre le Club : "+props.titleClub;
   const body = "Bonjour,\n\nnom && prenom :\n\nVotre filiere :\n\nVotre motivation pour joindre: \n\n";

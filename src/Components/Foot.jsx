@@ -12,10 +12,10 @@ const Foot = () => {
     </div>
     <div className="LiensUtiles">
     <span className="title">Liens utils</span>
-  <Link to="/Home"><span>▶</span>Home</Link>
-  <Link to='/Reviews'><span>▶</span>Témoignages</Link>
-  <Link to="/Clubs"><span>▶</span>Clubs</Link>
-  <Link to="/SearchClicked"><span>▶</span>Espace des Questions</Link>
+      <Link to="/Home"><span>▶</span>Home</Link>
+      <Link to='/Reviews'><span>▶</span>Témoignages</Link>
+      <Link to="/Clubs"><span>▶</span>Clubs</Link>
+      <Link to="/SearchClicked"><span>▶</span>Espace des Questions</Link>
     </div>
     <div className="contact">
       <span className="title">Adresse  </span>

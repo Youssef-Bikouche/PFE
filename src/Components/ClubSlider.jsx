@@ -1,14 +1,9 @@
 import SliderCard from "./SliderCards";
 import "./style/ClubSlider.css";
-// import "swiper/swiper.min.css";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
-import "swiper/css/pagination";
-
-
 import { Swiper, SwiperSlide } from "swiper/react";
-
-import {  Autoplay,EffectCoverflow, Pagination, Navigation  } from "swiper";
+import {  Autoplay,EffectCoverflow } from "swiper";
 
 const ClubSlider = ({props}) => {
  return (  
@@ -16,7 +11,6 @@ const ClubSlider = ({props}) => {
     <>
       <Swiper
         effect={"coverflow"}
-        grabCursor={true}
         centeredSlides={true}
         slidesPerView={3}
         spaceBetween={30}
@@ -27,25 +21,16 @@ const ClubSlider = ({props}) => {
         }}
         coverflowEffect={{
           rotate: 50,
-          stretch: 0,
-          depth: 100,
-          modifier: 1,
-          slideShadows: true,
-          
+          depth: 100,    
         }}
-        pagination={{
-          clickable: true,
-        }}
-        navigation={true}
-        modules={[Autoplay, EffectCoverflow,Pagination, Navigation]}
-        className="mySwiper"
+        modules={[Autoplay, EffectCoverflow]}
       >
         {props?.length > 0 ? (
           <div className="ClubSlider">
             {props.map((Club) => (
               <SwiperSlide>
-            <SliderCard props={Club}/>
-                </SwiperSlide>
+                  <SliderCard props={Club}/>
+              </SwiperSlide>
             ))}
           </div>
         ) : (

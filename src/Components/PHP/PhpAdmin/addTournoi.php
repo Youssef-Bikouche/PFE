@@ -12,7 +12,11 @@ $Delais=$data->Delais;
 try{ 
  $db = new PDO('mysql:host=localhost;dbname=pfe', 'root', '');
  if(isset($NomTournoi)){
- $req = $db->prepare('insert into tournoi (nom,info,place,date) values ("'.$NomTournoi.'","'.$infoTournoi.'","'.$nbrPlace.'","'.$Delais.'");');
+ $req = $db->prepare('insert into tournoi (nom,info,place,date) values (:nom,:info,:place,:date);');
+ $req->bindValue(":nom",$NomTournoi);
+  $req->bindValue(":info",$infoTournoi);
+  $req->bindValue(":place",$nbrPlace);
+  $req->bindValue(":date",$Delais);
  $req->execute();
  $response['data']=array('status'=>'ok');
    echo json_encode($response);

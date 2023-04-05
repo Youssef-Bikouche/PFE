@@ -9,7 +9,7 @@ const Uploadcourse = () => {
      const formData = new FormData();
      formData.append("pdfFile", selectedFile);
      await axios.post('http://localhost:8080/pfe/src/Components/PHP/PhpProfesseur/uploadcour.php',
-     formData).then((result)=>{
+     formData).then(()=>{
      })
    };
  
@@ -28,8 +28,10 @@ const Uploadcourse = () => {
     const [courSemester,setcourSemester]=useState('');  
     const [courModule,setcourModule]=useState(''); 
     const [courFiliere,setcourFiliere]=useState(''); 
+    const [typecour,setTypecour]=useState('cours');
 const uploadcour= async event => {
    const pathcour=selectedFile.name;
+   const idprof=localStorage.getItem("id");
    handleUploadClick();
    await axios.post('http://localhost:8080/pfe/src/Components/PHP/PhpProfesseur/AddCour.php',{
     nomcour,
@@ -37,6 +39,8 @@ const uploadcour= async event => {
     courModule,
     courFiliere,
     pathcour,
+    typecour,
+    idprof,
      }).then(()=>{
       navigate('/Home');
    });
@@ -76,6 +80,13 @@ const uploadcour= async event => {
     <div className="addModule">
        <label htmlFor="">Module:</label>
        <input type="text" name="" id="" onChange={(event)=>setcourModule(event.target.value)}/>
+    </div>
+    <div className="addType">
+       <label htmlFor="">type:</label>
+       <select  onChange={(event)=>{setTypecour(event.target.value)}}>
+        <option value="cours">cours</option>
+        <option value="TD">TD</option>
+      </select>
     </div>
     <div className="addCour">
     <label htmlFor="">Cour:(on pdf)</label>

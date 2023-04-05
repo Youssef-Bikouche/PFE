@@ -2,27 +2,22 @@ import "./style/QuestionCard.css";
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faHeart} from '@fortawesome/free-solid-svg-icons';
-// import Reponse from "./Reponse";
 import { useNavigate} from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import CryptoJS from "crypto-js";
 library.add(faUser);
-library.add(faHeart);
+
 
 const QuestionCard = ({props}) => {
    
 const [nbrReponse,setnbrReponse]=useState('0');
-const [color, setColor] = useState(false);
-function handleLikeColor() {
-   setColor(!color);
- }
 const myData=props;
+const id=props.id;
 const navigate=useNavigate();
 const navigteToreponse=()=>{
    navigate('/Reponse',{state:{myData}});
 }
-const id=props.id;
  useEffect(()=>{
    const getnbrReponses= async event => {
       await axios.post('http://localhost:8080/pfe/src/Components/PHP/nbrReponse.php',{
@@ -37,19 +32,22 @@ const id=props.id;
   /******************************** */
   const [adminDeleteQuestion,setadminDeleteQuestion]=useState(false);
    const checkAdmin=()=>{
-    if(localStorage.getItem('role')==='admin'){
+      const CryptingKey = "xxx";
+      const encryptedData = localStorage.getItem('Crypted');
+   if(encryptedData){
+      const decryptedData = CryptoJS.AES.decrypt(encryptedData,CryptingKey).toString(CryptoJS.enc.Utf8);
+    if(decryptedData === "admin"){
       setadminDeleteQuestion(true);
     }
     else{
       setadminDeleteQuestion(false);
     }
-    console.log(adminDeleteQuestion);
-  }
+
+  }}
   const DeleteQuestion=async (id)=>{
   await axios.post("http://localhost:8080/pfe/src/Components/PHP/PhpAdmin/DeleteQuestion.php",{
    id,
    }).then(()=>{
-    console.log("Question Deleted");
     navigate('/SearchClicked');
    });
   }
@@ -61,8 +59,7 @@ const id=props.id;
    :(<></>)}
    <div className='left-side-question'>
       <div className="logo-user"><FontAwesomeIcon icon="user" className="user-icon"/></div>
-      <div className="likes" ><FontAwesomeIcon className={'likes ' + (color ? 'liked-heart' :'')} onClick={()=>handleLikeColor()} icon="heart"/></div>
-      {/* <div className="likes-number">11</div> */}
+   
    </div>
    <div className='right-side-question'>
       <div className="info-postage">

@@ -2,7 +2,7 @@
 position: fixed;
  width: 100%;
  min-height: 100vh;
- padding: 0 5%;
+
  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),url(/src/Components/images/useresBackground.png);
 background-position: center;
 background-attachment: fixed;
@@ -67,3 +67,63 @@ overflow-y: scroll;
 .user-table-columns-details button:hover{
   background-color: red;
 }
+.user-table-columns-details span{
+  font-size: x-large;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.editRole-container{
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.628);
+  backdrop-filter: blur(3px);
+  }
+  .editRole{
+   position: relative;
+   height: auto;
+   width: 30%;
+   margin: 10% auto;
+   background-color: rgba(0, 0, 0, 0.628);
+   border: 1px solid black;
+   border: 12px;
+   text-align: center;
+   padding: 20px;
+   color: white;
+   font-size: x-large;
+   border-radius: 16px;
+  }
+  .editRole input{
+   margin-bottom: 20px;
+  }
+  .editRole option{
+    font-size: large;
+   }
+  .close-pop{
+    position: absolute;
+    cursor: pointer;
+    right: 6px;
+    top: 2px;
+    color: red;
+  }
+  .editRole button{
+    width: 50%;
+    border-radius: 12px;
+    border: none;
+    font-size: large;
+    height: 30px;
+    background-color: lightsalmon;
+    color: white;
+    transition: box-shadow 0.5s;
+    padding: 5px 0 10px 0;
+    margin: 10px 0;
+  }
+  .editRole button:hover{
+    box-shadow: inset 600px 0px 5px #FF6A3D;
+  }
+  .editRole select{
+    height: 30px;
+    font-size: large;
+  }
